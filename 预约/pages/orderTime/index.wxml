@@ -1,0 +1,58 @@
+<!--pages/orderTime/index.wxml-->
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      你确定要预约吗?\n预约后请及时到达哦！\n开始前1小时将无法取消
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button data-chose='cancle' class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button data-chose='confirm' class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='containt'>
+  <scroll-view class="scroll-view_H" scroll-x>
+    <view class='list' style='width:{{ width }}rpx'>
+      <view bindtap="select" wx:for="{{ calendar }}" wx:for-item="item" wx:for-index="index" data-index="{{ index }}" class='listItem {{index==currentIndex? "current":""}}' wx:key='' data-date="{{ item.date}}">
+        <text class='name'>{{ item.week }}</text>
+        <text class='date'>{{ item.date }}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="grid col-4 padding-sm">
+    <view class="padding-sm" wx:for="{{timeArr}}"wx:for-index="timeIndex"data-Tindex="{{ timeIndex }}" wx:key=""bindtap='selectTime'>
+      <view class="{{ currentTime==timeIndex? 'selected' :'' }} bg-{{item.status==can?'yellow':'grey'}} padding radius text-center shadow-blur">
+        <view class="text-lg">{{ item.status}}</view>
+        <view class="margin-top-sm text-Abc">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view style="margin-top:100rpx;" class='time'>
+    <view style='margin:20rpx 0rpx;background-color:{{timeItem.status== can?" ": " lightblue"}};' wx:for-item="timeItem" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" data-time="{{ timeItem.time}}" data-status="{{timeItem.status}}" bindtap='selectTime'
+      class='listItem {{ currentTime==timeIndex? "current ":" " }}' wx:key='' wx:for="{{ timeArr }}">
+      <text>{{ timeItem.time }}</text>
+      <text>{{ timeItem.status }}</text>
+    </view>
+  </view> -->
+  <view style='display:flex;margin-top:100rpx; justify-content:center;'class="action">
+    <button style='width:200rpx;'class="cu-btn lg bg-green shadow" bindtap="showModal" data-target="DialogModal1">预约</button>
+  </view>
+  <!-- <view class='operate'>
+    <button class='cancle'>取消</button>
+    <button bindtap='showModal' class='confirm'>预约</button>
+  </view> -->
+
+</view>
