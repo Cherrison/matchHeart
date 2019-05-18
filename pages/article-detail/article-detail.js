@@ -26,7 +26,7 @@ Page({
           res.data,               // `markdown`或`html`文本内容
           'markdown'              // `markdown`或`html`
         );
-
+        console.log(res.data)
         //前台初始化小程序数据（2.1.2新增，如果小程序中无相对资源需要添加`base`根地址，也无`audio`内容可无需初始化）
         data = app.towxml.initData(data, {
           base: 'https://xxx.com/',    // 需要解析的内容中相对路径的资源`base`地址
@@ -45,19 +45,16 @@ Page({
   },
   
   changeTheme:function(){
-    var articletheme=this.data.article;
-    
+    var themechange="article.theme";
     if(this.data.currentTheme==1){
-      articletheme.theme='dark'
       this.setData({
         currentTheme: 0,
-        article: articletheme
+        [themechange]:'dark'
       })
     }else{
-      articletheme.theme = 'light'
       this.setData({
         currentTheme: 1,
-        article: articletheme
+        [themechange]: 'light'
       })
     }
   },
