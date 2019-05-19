@@ -3,7 +3,8 @@ const Towxml = require('/towxml/main');     // 引入towxml库
 const bgManager = wx.getBackgroundAudioManager(); // 全局的播放器
 App({
   data:{
-    bgManager: bgManager
+    bgManager: bgManager,
+    inner:"",
   },
   towxml: new Towxml(),                    //创建towxml对象，供小程序页面使用
   setMusic: function (title, coverImgUrl, singer, epname, src) {
@@ -17,7 +18,7 @@ App({
     bgManager.play()
   },
   setTime: function (time) {
-    bgManager.currentTime = time
+    bgManager.seek(time)
   },
 
   getDuration: function () {

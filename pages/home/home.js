@@ -1,12 +1,14 @@
 // pages/about/about.js
 var t = getApp(), a = t.globalData.bgAudio;
 const util = require('../../utils/util.js')
+const app = getApp()
 Component({
 
   /**
    * 页面的初始数据
    */
   data: {
+    maxTime:"",
     inter: "",
     startTime: "0:00",
     endTime: "0",
@@ -56,7 +58,8 @@ Component({
       max: 100,
       playState: 0
     },
-    listenList: {
+    listenIndex:0,
+    listenList: [{
       id: 74,
       head_img: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
       song_name: "“单身多年， 你孤独吗？",
@@ -66,7 +69,27 @@ Component({
       listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
       rank: 0,
       hot: 28293
-    },
+    }, {
+      id: 74,
+      head_img: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
+      song_name: "“单身多年， 你孤独吗？",
+      author: "小海",
+      boutique: 1,
+      classify: 1,
+      listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+      rank: 0,
+      hot: 28293
+    }, {
+      id: 74,
+      head_img: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
+      song_name: "“单身多年， 你孤独吗？",
+      author: "小海",
+      boutique: 1,
+      classify: 1,
+      listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+      rank: 0,
+      hot: 28293
+    }],
     articleList: [{
       articleId: '1',
       title: '这里有个戏精铲屎官，主子了解一下？',
@@ -220,7 +243,9 @@ Component({
   methods: {
     onLoad: function (options) {
       var app = getApp()
-      app.setMusic("单身", this.data.listenList.head_img, "海", "单身", this.data.listenList.listen_url)
+      var data = this.data.listenList
+      var index = this.data.listenIndex
+      app.setMusic(data[index].song_name, data[index].head_img, data[index].author, data[index].song_name, data[index].listen_url)
       var that = this
       t.getUserInfo(function (usercb) {
         that.setData({
@@ -228,13 +253,33 @@ Component({
           nickName: usercb.nickName,
           imageurl: usercb.avatarUrl
         })
+        wx.request({
+          url: 'https://www.clearn.site/wxapi/getArticle.php',
+          method:"POST",
+          header:{
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data:{
+            type:'title',
+            id:0
+          },
+          success:function(res){
+            console.log(res)
+            if(!res.data)
+              return
+            var tmp = []
+            for(let i = 0;i < 5 && i<res.data.length;i++)
+              tmp.push(res.data[i])
+            that.setData({
+              articleList:tmp
+            })
+          }
+        })
         console.log('用户名称: ', usercb)
         console.log('用户名称1: ', that.data.userinfo)
       })
-
     },
     onReady: function (options) {
-      console.log("ready")
       var app = getApp()
       var length = app.getDuration()
       var m = parseInt(length / 60)
@@ -287,6 +332,8 @@ Component({
     // 播放器部分
     sliderChange: function (e) {
       var playing;
+      app.setTime(e.detail.value)
+      setInterval(this.setTime, 1000, this)
       playing = util.totime(e.detail.value, this.data.bgAudioState.endtime);
       var playChange = this.data.bgAudioState;
       playChange.starttime=playing;
@@ -298,6 +345,16 @@ Component({
       
       console.log('切换到 '+ playing +' 处');
     },
+    setTime: function (that) {
+      var app = getApp()
+      var current = app.getCurrentTime()
+      current = parseInt(current)
+      var s = util.timeform(current)
+      that.setData({
+        sliderBar: app.getCurrentTime(),
+        startTime: s
+      })
+    },
     play: function (t) {
       var app = getApp()
       if (this.data.bgAudioState.playState == 0) {
@@ -305,8 +362,11 @@ Component({
         this.setData({
           bgAudioState: this.data.playing
         })
-        this.data.inter = setInterval(this.setTime, 1000, this)
+        app.data.inter = setInterval(this.setTime, 1000, this)
         app.playMusic()
+        this.setData({
+          maxTime:app.getDuration()
+        })
       } else {
         console.log('暂停')
         app.pauseMusic()
@@ -314,28 +374,33 @@ Component({
           bgAudioState: this.data.pause
         })
         this.endTime(this)
+        clearTimeout()
       }
     },
 
     lastSong:function(e){
       console.log('切换到上一首')
+      var app = getApp()
+      var data = this.data.listenList
+      if(this.data.listenIndex >= (data.length - 1))
+        return
+      this.data.listenIndex++;
+      var index = this.data.listenIndex
+      app.setMusic(data[index].song_name, data[index].head_img, data[index].author, data[index].song_name, data[index].listen_url)
     },
 
     nextSong:function(e){
       console.log('切换到下一首')
+      var data = this.data.listenList
+      if (this.data.listenIndex >= (data.length - 1))
+        return
+      this.data.listenIndex--;
+      var index = this.data.listenIndex
+      app.setMusic(data[index].song_name, data[index].head_img, data[index].author, data[index].song_name, data[index].listen_url)
     },
     endTime(that) {
-      clearInterval(that.data.inter)
-    },
-    setTime: function (that) {
       var app = getApp()
-      var current = app.getCurrentTime()
-      var s = util.timeform(current)
-      that.setData({
-        maxTime: app.getDuration(),
-        sliderBar: app.getCurrentTime(),
-        startTime: s
-      })
+      clearInterval(app.data.inter)
     },
 
     toArticleDetail:function(e){

@@ -45,11 +45,11 @@
   <view style="margin-top:40rpx;min-height:302rpx;">
     <view class="play {{suspend?'topPlay':''}}">
       <view class="play-main">
-        <image class="photo" lazyLoad="true" src="{{listenList.head_img}}"></image>
+        <image class="photo" lazyLoad="true" src="{{listenList[listenIndex].head_img}}"></image>
         <view class="play-box">
-          <label class="key" hidden="{{listenList.boutique==1?false:true}}">新</label>
-          <view class="tit">{{listenList.song_name}}</view>
-          <view class="text">{{listenList.author}}
+          <label class="key" hidden="{{listenList[listenIndex].boutique==1?false:true}}">新</label>
+          <view class="tit">{{listenList[listenIndex].song_name}}</view>
+          <view class="text">{{listenList[listenIndex].author}}
             <label wx:for="{{listenList.tag}}" wx:key="name">
               {{item.name}}
             </label>
@@ -57,9 +57,9 @@
         </view>
       </view>
       <view class="slider">
-        <view class="left">{{bgAudioState.starttime}}</view>
-        <view class="right">{{bgAudioState.endtime}}</view>
-        <slider activeColor="rgb(167, 143, 233)" blockColor="rgb(167, 143, 233)" blockSize="12" class="slider-box" max="{{maxTime}}" step="1" bindchange='sliderChange' value="{{sliderBar}}"></slider>
+        <view class="left">{{startTime}}</view>
+        <view class="right">{{endTime}}</view>
+        <slider activeColor="rgb(167, 143, 233)" blockColor="rgb(167, 143, 233)" blockSize="12" class="slider-box" max="{{maxTime}}" step="1" bindtouchstart='endTime' bindchange='sliderChange' value="{{sliderBar}}"></slider>
       </view>
       <view class="play-bottom">
         <view catchtap="lastSong" class="play-prev">
@@ -80,9 +80,9 @@
     <view class="name">文章</view>
     <navigator class="more" url="/pages/home/knowis/knowis?bigType=2"></navigator>
   </view>
-  <scroll-view class="article-swiper" scrollX="true">
-    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.articleId}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail'>
-      <image class='shadow-lg  ' lazyLoad="true" mode="aspectFill" src="{{item.picUrl}}"></image>
+  <scroll-view class="article-swiper" scroll-x="true">
+    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail'>
+      <image class='shadow-lg  ' lazyLoad="true" mode="aspectFill" src="{{item.imgurl}}"></image>
       <view class="item-main ">
         <view class="tit">{{item.title}}</view>
         <view class="text">{{item.description}}</view>
