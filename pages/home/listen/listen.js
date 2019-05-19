@@ -1,11 +1,12 @@
 const app = getApp();
 Page({
   data: {
+    has:false,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     isCard: 0,
     showcnt: "0",//已加载的文章数
-    articleList: [],
+    listenList: [],
     play: "/images/play-btn-start.png",
     isPlay: false,
     currentPlayId: 0,
@@ -16,48 +17,90 @@ Page({
     this.getData()
   },
 
+  update:function(id1, id){
+    var that = this
+    console.log(that.data.listenList[id1].listen - 1 + 2)
+    wx.request({
+      url: 'https://www.clearn.site/wxapi/getListenList.php',
+      method:"POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        type:'update',
+        id:id,
+        listen: that.data.listenList[id1].listen - 1 + 2
+      },
+      success:function(res){
+        console.log(res)
+        var tmp = that.data.listenList[id1].listen - 1 + 2
+        var str = 'listenList['+id1+'].listen';
+        that.setData({
+          [str]:tmp
+        })
+      }
+    })
+  },
+
   play: function (e) {
     console.log(e)
     var id = e.currentTarget.dataset.id
     var id2 = this.data.currentPlayId
+    var data = this.data.listenList
     if (id != id2) {
-      this.data.articleList[id2].play = "/images/play-btn-start.png"
-      this.data.articleList[id].play = "/images/play-btn-stop.png"
-      this.data.articleList[id].isPlay = true
-      this.data.articleList[id2].isPlay = false
-      var list1 = 'articleList[' + id + '].play'
-      var list2 = 'articleList[' + id2 + '].play'
+      data[id2].play = "/images/play-btn-start.png"
+      data[id].play = "/images/play-btn-stop.png"
+      data[id].isPlay = true
+      data[id2].isPlay = false
+      var list1 = 'listenList[' + id + '].play'
+      var list2 = 'listenList[' + id2 + '].play'
+      if (!this.data.has) {
+        this.update(id, data[id].Id)
+        this.data.has = true
+      }
+      app.setMusic(data[id].title, data[id].coverImgUrl, data[id].singer, data[id].title, data[id].src)
       this.setData({
-        [list1]: this.data.articleList[id].play,
-        [list2]: this.data.articleList[id2].play,
+        [list1]: data[id].play,
+        [list2]: data[id2].play,
         currentPlayId: id
       })
     }
-    else if (this.data.articleList[id].isPlay) {
-      this.data.articleList[id].play = "/images/play-btn-start.png"
-      this.data.articleList[id].isPlay = !this.data.articleList[id].isPlay
-      var list = 'articleList[' + id + '].play'
+    else if (data[id].isPlay) {
+      data[id].play = "/images/play-btn-start.png"
+      data[id].isPlay = !data[id].isPlay
+      var list = 'listenList[' + id + '].play'
       this.setData({
-        [list]: this.data.articleList[id].play,
+        [list]: data[id].play,
       })
+      app.pause()
     }
     else {
-      this.data.articleList[id].play = "/images/play-btn-stop.png"
-      this.data.articleList[id].isPlay = !this.data.articleList[id].isPlay
-      var list = 'articleList[' + id + '].play'
+      data[id].play = "/images/play-btn-stop.png"
+      data[id].isPlay = !data[id].isPlay
+      var list = 'listenList[' + id + '].play'
       this.setData({
-        [list]: this.data.articleList[id].play,
+        [list]: data[id].play,
       })
+      app.setMusic(data[id].title, data[id].coverImgUrl, data[id].singer, data[id].title, data[id].src)
+      if (!this.data.has) {
+        this.update(id, data[id].Id)
+        this.data.has = true
+      }
     }
   },
 
   getData: function () {
     var that = this
     wx.request({
-      url: 'https://www.clearn.site/wxapi/getArticle.php',
-      method: "GET",
+      url: 'https://www.clearn.site/wxapi/getListenList.php',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
       data: {
-        id: that.data.showcnt
+        type:'get',
+        id: that.data.showcnt,
+        num:15
       },//此处传入showcnt标志已有的数据，加载已有数据编号后的数据
 
       success: function (res) {
@@ -67,23 +110,15 @@ Page({
           console.log("没有了...")
           return
         }
-        if (res.data == "获取失败")
+        else if (res.data == "获取失败")
           return
-        var len = res.data.length
-        for (let i = 0; i < len; i++) {
-          var uni = []
-          for (let k = 0; k < res.data[i].tags.length; k++) {
-            var str = res.data[i].tags[k]
-            uni.push(JSON.parse(str))
-            res.data[i]["play"] = "/images/play-btn-start.png"
-            res.data[i]["isPlay"] = false
-          }
-          res.data[i].tags = uni
+        for(let i = 0;i < res.data.length;i++){
+          res.data[i]['play'] = "/images/play-btn-start.png"
         }
         var cnt = that.data.showcnt + res.data.length
-        that.data.articleList = that.data.articleList.concat(res.data)
+        that.data.listenList = that.data.listenList.concat(res.data)
         that.setData({
-          articleList: that.data.articleList,
+          listenList: that.data.listenList,
           showcnt: cnt
         })
       }

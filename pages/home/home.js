@@ -261,7 +261,8 @@ Component({
           },
           data:{
             type:'title',
-            id:0
+            id:0,
+            num:5
           },
           success:function(res){
             console.log(res)

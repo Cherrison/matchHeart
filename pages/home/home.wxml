@@ -80,8 +80,8 @@
     <view class="name">文章</view>
     <navigator class="more" url="/pages/home/knowis/knowis?bigType=2"></navigator>
   </view>
-  <scroll-view class="article-swiper" scroll-x="true">
-    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail'>
+  <scroll-view class="article-swiper" scroll-x='true' scroll-y='false' style='white-space: nowrap;width:100vw;'>
+    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail' style='display:inline-block;'>
       <image class='shadow-lg  ' lazyLoad="true" mode="aspectFill" src="{{item.imgurl}}"></image>
       <view class="item-main ">
         <view class="tit">{{item.title}}</view>

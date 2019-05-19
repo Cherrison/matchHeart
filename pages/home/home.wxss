@@ -525,6 +525,7 @@
     height: 250rpx;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    
 }
 
 .article-swiper .item {

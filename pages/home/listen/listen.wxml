@@ -17,16 +17,16 @@
 <!--此处设置文章内容滑动，下拉至底部自动加载，加载由小程序自身完成-->
 <scroll-view scroll-y='true' scroll-x='false' bindscrolltolower='tolower' style='height:100%;'>
   <view class="cu-card listen">
-    <view wx:for="{{articleList}}" data-article-id='{{item.id}}' wx:for-index='id' class="cu-item shadow">
+    <view wx:for="{{listenList}}" data-article-id='{{item.Id}}' wx:for-index='id' class="cu-item shadow">
       <view class="title">{{item.title}}</view>
       <view class="content">
-        <image style='border-radius:50%;' src="{{item.imgurl}}" mode="scaleToFill"></image>
-        <image src="{{item.play}}" data-id='{{id}}' data-src="{{item.src}}" class='playbtn'catchtap='play'></image>
+        <image style='border-radius:50%;' src="{{item.coverImgUrl}}" mode="scaleToFill"></image>
+        <image src="{{item.play}}" style="z-index:100;" data-id='{{id}}' data-src="{{item.src}}" class='playbtn'catchtap='play'></image>
         <view class="desc">
           <view class='text-content'>{{item.description}}</view>
           <view>
             <view wx:for="{{item.tags}}" wx:for-item="itag" wx:key="itags" style='margin-top:10rpx;' class='cu-tag bg-{{itag.color}} light sm round'>{{itag.short}}</view>
-            <view style='float:right;'class='text-brown cu-tag bg-olive light round'> 播放次数：{{item.star}}</view>
+            <view style='float:right;'class='text-brown cu-tag bg-olive light round'> 播放次数：{{item.listen}}</view>
           </view>
         </view>
       </view>

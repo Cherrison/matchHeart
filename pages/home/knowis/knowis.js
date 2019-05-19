@@ -18,9 +18,14 @@ getData:function(){
   var that = this
   wx.request({
     url: 'https://www.clearn.site/wxapi/getArticle.php',
-    method:"GET",
+    method:"POST",
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
     data: {
-      id:that.data.showcnt
+      type:'title',
+      id:that.data.showcnt,
+      num:10
     },//此处传入showcnt标志已有的数据，加载已有数据编号后的数据
 
     success: function (res) {
@@ -32,15 +37,6 @@ getData:function(){
       }
       if(res.data=="获取失败")
         return
-      var len = res.data.length
-      for (let i = 0; i < len; i++) {
-        var uni = []
-        for (let k = 0; k < res.data[i].tags.length; k++) {
-          var str = res.data[i].tags[k]
-          uni.push(JSON.parse(str))
-        }
-        res.data[i].tags = uni
-      }
       var cnt = that.data.showcnt + res.data.length
       that.data.articleList = that.data.articleList.concat(res.data)
       that.setData({
