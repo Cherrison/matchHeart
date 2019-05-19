@@ -9,7 +9,7 @@ Page({
       "/images/btn/moon--current.png",
       "/images/btn/sun--default.png"
       ],
-    currentTheme:0
+    currentTheme:1
   },
   onLoad: function (options) {
     const _ts = this;

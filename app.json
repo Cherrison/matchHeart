@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/home/listen/listen",
     "pages/home/home",
     "pages/article-detail/article-detail",
     "pages/home/assess/assess",
@@ -11,6 +10,7 @@
     "pages/expert-detail/expert-detail",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/home/listen/listen",
     "pages/about/home/home"
   ],
   "window": {
