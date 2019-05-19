@@ -87,6 +87,9 @@ Page({
   },
   hideModal(e) {
     console.log(e.currentTarget.dataset.chose)
+    wx:wx.navigateTo({
+      url: '/pages/formInfo/formInfo'
+    })
     this.setData({
       modalName: null
     })

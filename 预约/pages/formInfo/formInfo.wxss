@@ -1,0 +1,36 @@
+/* pages/formInfo/formInfo.wxss */
+radio{
+  margin-right:20rpx;
+}
+.form-group {
+	background-color: var(--white);
+	padding: 1rpx 30rpx;
+  flex-direction: column;
+}
+.top{
+  text-align: left;
+  min-height: 60rpx;
+  font-weight: 500;
+  font-size: 35rpx;
+  margin: 60rpx 0rpx;
+}
+.top-sm{
+  text-align: left;
+  min-height: 60rpx;
+  font-weight: 500;
+  font-size: 30rpx;
+  margin: 10rpx 10rpx;
+}
+.choice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90vw;
+  margin-top:30rpx;
+  margin-bottom: 20rpx;
+}
+.fege{
+  border-bottom: 5rpx solid grey;
+  width: 90vw;
+  margin-left: 5vw;
+}

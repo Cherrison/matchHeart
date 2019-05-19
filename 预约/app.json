@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/orderTime/index",
+    "pages/formInfo/formInfo",
     "pages/index/index",
     "pages/logs/logs"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",
