@@ -87,7 +87,7 @@
         <view class="tit">{{item.title}}</view>
         <view class="text">{{item.description}}</view>
         <view class="item-box">
-          <view class="see">{{item.views}}</view>
+          <view class="see">{{item.read}}</view>
           <view class="name">{{item.author}}</view>
         </view>
       </view>
