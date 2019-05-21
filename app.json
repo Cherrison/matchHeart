@@ -11,6 +11,7 @@
     "pages/expert-detail/expert-detail",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/home/listen/listen",
     "pages/about/home/home"
   ],
   "window": {
