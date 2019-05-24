@@ -42,12 +42,12 @@ Page({
     })
   },
 
-  play: function (e) {
+  play: function (e) {    //此函数控制播放与暂停
     console.log(e)
     var id = e.currentTarget.dataset.id
     var id2 = this.data.currentPlayId
     var data = this.data.listenList
-    if (id != id2) {
+    if (id != id2) {      //如果播放歌曲与点击歌曲不同
       data[id2].play = "/images/play-btn-start.png"
       data[id].play = "/images/play-btn-stop.png"
       data[id].isPlay = true
@@ -65,6 +65,7 @@ Page({
         currentPlayId: id
       })
     }
+    //处理同一首歌的播放与暂停
     else if (data[id].isPlay) {
       data[id].play = "/images/play-btn-start.png"
       data[id].isPlay = !data[id].isPlay
@@ -72,7 +73,7 @@ Page({
       this.setData({
         [list]: data[id].play,
       })
-      app.pause()
+      app.pauseMusic()
     }
     else {
       data[id].play = "/images/play-btn-stop.png"
