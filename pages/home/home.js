@@ -69,179 +69,13 @@ Component({
       listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
       rank: 0,
       hot: 28293
-    }, {
-      id: 74,
-      head_img: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      song_name: "“单身多年， 你孤独吗？",
-      author: "小海",
-      boutique: 1,
-      classify: 1,
-      listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
-      rank: 0,
-      hot: 28293
-    }, {
-      id: 74,
-      head_img: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      song_name: "“单身多年， 你孤独吗？",
-      author: "小海",
-      boutique: 1,
-      classify: 1,
-      listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
-      rank: 0,
-      hot: 28293
-    }],
-    articleList: [{
-      articleId: '1',
-      title: '这里有个戏精铲屎官，主子了解一下？',
-      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
-      content: "",
-      views: "123",
-      author: "小海",
-      picUrl: "https://www.52hertalk.cn/public/upload/article/2019/05-05/bd0442b85c9130330a4972ffb3d60530.jpg",
-      tags: [{
-        short: "假装有猫",
-        color: "red"
-      },
-      {
-        short: "戏精",
-        color: "blue"
-      },
-      {
-        short: "心灵治愈",
-        color: "green"
-      }
-      ]
     },
-    {
-      articleId: '2',
-      title: '这里有个戏精铲屎官，主子了解一下？',
-      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
-      content: "",
-      views: "122",
-      author: "问问",
-      picUrl: "https://www.52hertalk.cn/public/upload/article/2019/04-09/1653021b9401babfc14183541a64a919.jpg",
-      tags: [{
-        short: "假装有猫",
-        color: "red"
-      },
-      {
-        short: "戏精",
-        color: "blue"
-      },
-      {
-        short: "心灵治愈",
-        color: "green"
-      }
-      ]
-    },
-    {
-      articleId: '3',
-      title: '这里有个戏精铲屎官，主子了解一下？',
-      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
-      content: "",
-      views: "321",
-      author: "来听歌",
-      picUrl: "",
-      tags: [{
-        short: "假装有猫",
-        color: "red"
-      },
-      {
-        short: "戏精",
-        color: "blue"
-      },
-      {
-        short: "心灵治愈",
-        color: "green"
-      }
-      ]
-    },
-    {
-      articleId: '4',
-      title: '这里有个戏精铲屎官，主子了解一下？',
-      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
-      content: "",
-      views: "",
-      author: "",
-      picUrl: "",
-      tags: [{
-        short: "假装有猫",
-        color: "red"
-      },
-      {
-        short: "戏精",
-        color: "blue"
-      },
-      {
-        short: "心灵治愈",
-        color: "green"
-      }
-      ]
-    },
-    {
-      articleId: '5',
-      title: '这里有个戏精铲屎官，主子了解一下？',
-      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
-      content: "",
-      views: "",
-      author: "",
-      picUrl: "",
-      tags: [{
-        short: "假装有猫",
-        color: "red"
-      },
-      {
-        short: "戏精",
-        color: "blue"
-      },
-      {
-        short: "心灵治愈",
-        color: "green"
-      }
-      ]
-    }
-    ],
-    linearList: [
-      {
-        bg: "gradual-red",
-        name: "魅红",
-        color: "#f43f3b , #ec008c"
-      },
-      {
-        bg: 'gradual-orange',
-        name: '鎏金',
-        color: '#ff9700 , #ed1c24'
-      },
-      {
-        bg: 'gradual-green',
-        name: '翠柳',
-        color: '#39b54a , #8dc63f'
-      },
-      {
-        bg: 'gradual-blue',
-        name: '靛青',
-        color: '#0081ff , #1cbbb4'
-      },
-      {
-        bg: 'gradual-purple',
-        name: '惑紫',
-        color: '#9000ff , #5e00ff'
-      },
-      {
-        bg: 'gradual-pink',
-        name: '霞彩',
-        color: '#ec008c , #6739b6'
-      },
-    ]
-
+  ],
+  articleList: []
   },
   methods: {
     onLoad: function (options) {
+      this.getData()
       var app = getApp()
       var data = this.data.listenList
       var index = this.data.listenIndex
@@ -253,29 +87,7 @@ Component({
           nickName: usercb.nickName,
           imageurl: usercb.avatarUrl
         })
-        wx.request({
-          url: 'https://www.clearn.site/wxapi/getArticle.php',
-          method:"POST",
-          header:{
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          data:{
-            type:'title',
-            id:0,
-            num:5
-          },
-          success:function(res){
-            console.log(res)
-            if(!res.data)
-              return
-            var tmp = []
-            for(let i = 0;i < 5 && i<res.data.length;i++)
-              tmp.push(res.data[i])
-            that.setData({
-              articleList:tmp
-            })
-          }
-        })
+        
         console.log('用户名称: ', usercb)
         console.log('用户名称1: ', that.data.userinfo)
       })
@@ -403,7 +215,36 @@ Component({
       var app = getApp()
       clearInterval(app.data.inter)
     },
+    // 文章部分
+    getData: function () {
+      var that = this
+      wx.request({
+        url: 'https://www.clearn.site/wxapi/getArticle.php',
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        data: {
+          type: 'title',
+          id: 0,
+          num: 5
+        },//此处传入showcnt标志已有的数据，加载已有数据编号后的数据
 
+        success: function (res) {
+          //此处处理数据中的tags，将其转换为json
+          console.log(res)
+          if (res.data == null) {
+            console.log("没有了...")
+            return
+          }
+          if (res.data == "获取失败")
+            return
+          that.setData({
+            articleList: res.data
+          })
+        }
+      })
+    },
     toArticleDetail:function(e){
       var articleId=e.currentTarget.dataset.articleId
       console.log('跳转到文章详情页: '+articleId)
