@@ -45,10 +45,10 @@
   <view style="margin-top:40rpx;min-height:302rpx;">
     <view class="play {{suspend?'topPlay':''}}">
       <view class="play-main">
-        <image class="photo" lazyLoad="true" src="{{listenList[listenIndex].head_img}}"></image>
+        <image class="photo" lazyLoad="true" src="{{listenList[listenIndex].coverImgUrl}}"></image>
         <view class="play-box">
           <label class="key" hidden="{{listenList[listenIndex].boutique==1?false:true}}">新</label>
-          <view class="tit">{{listenList[listenIndex].song_name}}</view>
+          <view class="tit">{{listenList[listenIndex].title}}</view>
           <view class="text">{{listenList[listenIndex].author}}
             <label wx:for="{{listenList.tag}}" wx:key="name">
               {{item.name}}
