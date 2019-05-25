@@ -6,6 +6,7 @@ Page({
    */
   data: {
     test:[],
+    title:"抑郁自测量",
   },
 
   /**
