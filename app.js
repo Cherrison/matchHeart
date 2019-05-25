@@ -5,6 +5,8 @@ App({
   data:{
     bgManager: bgManager,
     inner:"",
+    src:"",
+    isPlay:false,
   },
   towxml: new Towxml(),                    //创建towxml对象，供小程序页面使用
   setMusic: function (title, coverImgUrl, singer, epname, src) {
@@ -13,9 +15,12 @@ App({
     bgManager.singer = singer
     bgManager.src = src
     bgManager.epname = epname
+    this.data.src = src
+    this.data.isPlay = false
   },
   playMusic: function (e) {
     bgManager.play()
+    this.data.isPlay = true
   },
   setTime: function (time) {
     bgManager.seek(time)
@@ -29,6 +34,7 @@ App({
   },
   pauseMusic: function (e) {
     bgManager.pause()
+    this.data.isPlay = false
   },
   
   getUserInfo: function (cb) {

@@ -1,0 +1,21 @@
+
+scroll-view{
+  height:100vh;
+  width:100vw;
+}
+
+.titlebar{
+  background-color: rgb(113, 187, 255);
+  height: 11vh;
+  padding-top: 55rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+}
+.back{
+  display: block;
+  font-size: 35rpx;
+}
+.title{
+  display: block;
+  text-align: center;
+}
