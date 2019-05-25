@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{title}}</view>
+</cu-custom>
+
+
+<view style='height:100vh;width:100vw;'>
+<swiper autoplay='{{false}}' style='display:absolute;height:100%;background:red;width:100%;padding:35rpx;'>
+  <swiper-item wx:for="{{test}}" style='height:100%;width:100%;'>
+    <view class='swiper-item'>{{item[0]}}</view>
+  </swiper-item>
+</swiper>
+</view>

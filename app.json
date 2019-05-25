@@ -1,7 +1,8 @@
 {
   "pages": [
+    "pages/testPage/testDetail/testDetail",
     "pages/home/home",
-    "pages/home/listen/listen",
+    "pages/testPage/testPage",
     "pages/article-detail/article-detail",
     "pages/home/assess/assess",
     "pages/home/assess/result/result",
@@ -9,9 +10,15 @@
     "pages/home/heartbar/heartbar",
     "pages/expert/expert",
     "pages/expert-detail/expert-detail",
+    "pages/order/order",
+    "pages/order/form",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/about/home/home"
+    "pages/home/listen/listen",
+    "pages/about/home/home",
+    "pages/about/status/status"
+
+
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

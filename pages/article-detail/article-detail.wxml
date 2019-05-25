@@ -1,10 +1,19 @@
+<!-- 自定义头部navigationBar -->
+
+<view class="cu-custom" style="height:150rpx;">
+  <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
+    <view bindtap='back' class='btn'>返回</view>
+    <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>{{title}}</text>
+  </view>
+</view>
+
 <!--引入towxml模版入口文件，并使用模版-->
 
-<import src="/towxml/entry.wxml"/>
+<import src="/towxml/entry.wxml" />
 
-<template is="entry" data="{{...article}}"/>
+<template is="entry" data="{{...article}}" />
 
 <!--圆形点击框  -->
 <view class="round-click" bindtap='changeTheme'>
-   <image src='{{themepic[currentTheme]}}'></image>
+  <image src='{{themepic[currentTheme]}}'></image>
 </view>

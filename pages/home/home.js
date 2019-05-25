@@ -61,14 +61,57 @@ Component({
     listenIndex:0,
     listenList: [{
       id: 74,
-      head_img: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      song_name: "“单身多年， 你孤独吗？",
+      coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
+      title: "“单身多年， 你孤独吗？",
       author: "小海",
       boutique: 1,
       classify: 1,
-      listen_url: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+      src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
       rank: 0,
       hot: 28293
+    }, {
+      id: 74,
+      coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
+      title: "“单身多年， 你孤独吗？",
+      author: "小海",
+      boutique: 1,
+      classify: 1,
+      src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+      rank: 0,
+      hot: 28293
+    }, {
+      id: 74,
+      coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
+      title: "“单身多年， 你孤独吗？",
+      author: "小海",
+      boutique: 1,
+      classify: 1,
+      src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+      rank: 0,
+      hot: 28293
+    }],
+    articleList: [{
+      articleId: '1',
+      title: '这里有个戏精铲屎官，主子了解一下？',
+      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
+      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
+      content: "",
+      views: "123",
+      author: "小海",
+      picUrl: "https://www.52hertalk.cn/public/upload/article/2019/05-05/bd0442b85c9130330a4972ffb3d60530.jpg",
+      tags: [{
+        short: "假装有猫",
+        color: "red"
+      },
+      {
+        short: "戏精",
+        color: "blue"
+      },
+      {
+        short: "心灵治愈",
+        color: "green"
+      }
+      ]
     },
   ],
   articleList: []
@@ -79,20 +122,96 @@ Component({
       var app = getApp()
       var data = this.data.listenList
       var index = this.data.listenIndex
-      app.setMusic(data[index].song_name, data[index].head_img, data[index].author, data[index].song_name, data[index].listen_url)
+      if(app.data.src=="")
+        app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
       var that = this
       t.getUserInfo(function (usercb) {
         that.setData({
           userinfo: usercb,
           nickName: usercb.nickName,
           imageurl: usercb.avatarUrl
+        })//下面获取文章列表
+        wx.request({
+          url: 'https://www.clearn.site/wxapi/getArticle.php',
+          method:"POST",
+          header:{
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data:{
+            type:'title',
+            id:0,
+            num:5
+          },
+          success:function(res){
+            console.log(res)
+            if(!res.data)
+              return
+            var tmp = []
+            for(let i = 0;i < 5 && i<res.data.length;i++)
+              tmp.push(res.data[i])
+            that.setData({
+              articleList:tmp
+            })
+          }
+        })//下面获取歌曲列表
+        wx.request({
+          url: 'https://www.clearn.site/wxapi/getListenList.php',
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            type: 'get',
+            id: 0,
+            num: 15
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data == null) {
+              console.log("没有了...")
+              return
+            }
+            else if (res.data == "获取失败")
+              return
+            that.setData({
+              listenList: res.data,
+            })//处理跳转页面歌曲状态
+            if (app.data.src != "")
+              for (let i = 0; i < that.data.listenList.length; i++)
+                if (that.data.listenList[i].src == app.data.src) {
+                  console.log(i)
+                  that.setData({
+                    listenIndex: i,
+                    'bgAudioState.playState': 1
+                  })
+                  if (app.data.isPlay)
+                    that.play()
+                  return
+                }
+            }
         })
-        
         console.log('用户名称: ', usercb)
         console.log('用户名称1: ', that.data.userinfo)
       })
     },
+    Show:function(e){
+      console.log("show")
+      if(app.data.src=="")
+        return
+      for(let i = 0;i < listenList.length;i++)
+        if(listenList[i].src == app.data.src){
+          console.log(i)
+          this.setData({
+            listenIndex:i,
+            'bgAudioState.playState':1
+          })
+          if(app.data.isPlay)
+            this.play()
+          return
+        }
+    },
     onReady: function (options) {
+      console.log("")
       var app = getApp()
       var length = app.getDuration()
       var m = parseInt(length / 60)
@@ -195,11 +314,14 @@ Component({
       console.log('切换到上一首')
       var app = getApp()
       var data = this.data.listenList
-      if(this.data.listenIndex >= (data.length - 1))
+      if(this.data.listenIndex <= 0)
         return
-      this.data.listenIndex++;
+      this.data.listenIndex--
       var index = this.data.listenIndex
-      app.setMusic(data[index].song_name, data[index].head_img, data[index].author, data[index].song_name, data[index].listen_url)
+      this.setData({ listenIndex: index })
+      app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
+      if(!this.data.bgAudioState.playState)
+        this.play()
     },
 
     nextSong:function(e){
@@ -207,9 +329,13 @@ Component({
       var data = this.data.listenList
       if (this.data.listenIndex >= (data.length - 1))
         return
-      this.data.listenIndex--;
+      this.data.listenIndex++
       var index = this.data.listenIndex
-      app.setMusic(data[index].song_name, data[index].head_img, data[index].author, data[index].song_name, data[index].listen_url)
+      this.setData({ listenIndex: index })
+      console.log(data)
+      app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
+      if (!this.data.bgAudioState.playState)
+        this.play()
     },
     endTime(that) {
       var app = getApp()

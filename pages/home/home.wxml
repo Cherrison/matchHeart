@@ -22,7 +22,7 @@
   <!-- 菜单按钮 -->
 
   <view class="menu">
-    <navigator class="radius-xxl item navigator-hover" url="/pages/home/assess/assess">
+    <navigator class="radius-xxl item navigator-hover" url="/pages/testPage/testPage">
       <image class="item-ic" lazyLoad="true" src="/images/menu-ic-1.png"></image>
       <view class="item-name">心灵测评</view>
     </navigator>
@@ -45,10 +45,10 @@
   <view style="margin-top:40rpx;min-height:302rpx;">
     <view class="play {{suspend?'topPlay':''}}">
       <view class="play-main">
-        <image class="photo" lazyLoad="true" src="{{listenList[listenIndex].head_img}}"></image>
+        <image class="photo" lazyLoad="true" src="{{listenList[listenIndex].coverImgUrl}}"></image>
         <view class="play-box">
           <label class="key" hidden="{{listenList[listenIndex].boutique==1?false:true}}">新</label>
-          <view class="tit">{{listenList[listenIndex].song_name}}</view>
+          <view class="tit">{{listenList[listenIndex].title}}</view>
           <view class="text">{{listenList[listenIndex].author}}
             <label wx:for="{{listenList.tag}}" wx:key="name">
               {{item.name}}

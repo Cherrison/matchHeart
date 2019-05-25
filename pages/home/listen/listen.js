@@ -114,7 +114,15 @@ Page({
         else if (res.data == "获取失败")
           return
         for(let i = 0;i < res.data.length;i++){
-          res.data[i]['play'] = "/images/play-btn-start.png"
+          if(res.data[i].src == app.data.src && app.data.isPlay){
+            res.data[i]['play'] = "/images/play-btn-stop.png"
+            res.data[i]['isPlay'] = true
+          }
+          else{
+            res.data[i]['play'] = "/images/play-btn-start.png"
+            res.data[i]['isPlay'] = false
+          }
+            
         }
         var cnt = that.data.showcnt + res.data.length
         that.data.listenList = that.data.listenList.concat(res.data)

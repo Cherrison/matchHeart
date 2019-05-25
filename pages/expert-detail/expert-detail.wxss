@@ -1,4 +1,242 @@
+/**基础风格样式**/
+@import '/towxml/style/main.wxss';
+
+.round-click{
+    height: 120rpx;
+    width: 120rpx;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 150rpx;
+    right: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+.round-click image{
+  height: 80rpx;
+  width: 80rpx;
+}
+.round-click navigator{
+    font-size: 32rpx;
+    max-width: 80rpx;
+    color: #fff;
+    text-align: center;
+}
+
 .btn{
+  height: 3vh;
+  width: 12vw;
+  background-color: #db8bbb;
+  opacity: 0.80;
+  border-radius: 20rpx;
+  margin-top: 45rpx;
+  position: fixed;
+  font-size: 35rpx;
+  font-weight: bolder;
+  color: rgb(29, 43, 59);
+}
+.topAback{
+  display: inline-flex;
+  flex-direction: row;
+
+}
+.pos{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+}
+/**主题配色（浅色样式）**/
+@import '/towxml/style/theme/light.wxss';
+.body { 
+	height:100% 
+}
+.cuIcon-service:before {
+	content: "\e6ff";
+}
+.content { 
+	background-color: #fff; 
+	color: #fff; 
+}
+.zl-d {
+	background-color: #fff; 
+	border-top-left-radius: 20rpx; 
+	border-top-right-radius: 20rpx;
+	color: #4a4a4a; 
+}
+.head_introduce_bg{ 
+	width: 750rpx; 
+	height: 600rpx; 
+	border-bottom-left-radius: 20rpx; 
+	border-bottom-right-radius: 20rpx; 
+	-webkit-filter: blur(3px) brightness(70%); filter: blur(3px)
+	brightness(70%); 
+}
+.box_b{ 
+	width: 750rpx; 
+	height:450rpx; 
+	border-bottom-left-radius: 20rpx;
+	border-bottom-right-radius: 20rpx; 
+	position: relative; 
+	margin-top: -600rpx; 
+  text-align: center; 
+}
+.head_img_layout{ 
+	margin-top: 138rpx; 
+	width: 260rpx; 
+	height: 260rpx; 
+  position: relative;
+  margin-left: 115rpx;
+}
+.head_img{ 
+	width: 260rpx; 
+	height: 260rpx; 
+	border-radius: 50%;
+  position: absolute;
+}
+
+.user_name_layout{
+	height:50rpx; 
+	margin-top:20rpx; 
+	vertical-align: middle; 
+	-webkit-align-items: center; 
+	align-items: center; 
+	-webkit-justify-content: center;
+	justify-content: center; 
+	display: -webkit-flex; 
+	display: flex; 
+	-webkit-flex-direction: row; 
+	flex-direction: row;
+}
+.user_name{ 
+	display: inline-block; 
+	font-size: 36rpx;
+	color:rgba(255,255,255,0.8); 
+	line-height: 50rpx; 
+	margin-right: 10rpx; 
+	max-width: 290rpx; 
+	text-overflow :ellipsis; 
+	white-space : nowrap; 
+	overflow : hidden; 
+}
+.user_statue{ 
+	width: 80rpx; 
+	height: 30rpx; 
+	border-radius: 15rpx; 
+	font-size: 18rpx;
+	line-height:32rpx; 
+	margin-left: 8rpx;
+	margin-top: 4rpx; 
+	color: white; 
+	-webkit-align-items: center;
+	align-items: center; 
+}
+.user_intro{
+	width:650rpx; 
+	height: 40rpx; 
+	font-size: 28rpx; 
+	color:rgba(255,255,255,0.8);
+	line-height: 40rpx; 
+	text-overflow : ellipsis; 
+	white-space : nowrap; 
+	overflow : hidden; 
+	margin-left: 54rpx;
+	margin-top: 10rpx; 
+	text-align: center; 
+}
+.title_layout_plateforem { 
+	text-align: left; 
+	margin-top:20rpx; 
+	background-color: white; 
+	border-top-left-radius: 20rpx; 
+	border-top-right-radius: 20rpx;
+	padding-top: 30; 
+}
+.zl-fwimage{ 
+	width: 44rpx; 
+	height: 44rpx; 
+	margin-left: 30rpx; 
+	vertical-align: middle; 
+}
+.zl-fwtext {
+	font-weight: bold; 
+	vertical-align: middle; 
+	margin-left:10rpx; 
+	font-size: 44rpx; 
+}
+.title_gantan_img{ 
+	width:40rpx; 
+	height: 40rpx; 
+	vertical-align: middle;
+	margin-left: 10rpx; 
+}
+.zl-Baozhang { 
+	display: -webkit-flex; 
+	display: flex; 
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap; 
+	margin: auto; 
+	padding-top: 20rpx; 
+	width: 694rpx; 
+	border-radius:0px 0px 10 10; 
+	color: #999999; 
+	-webkit-column-count: 2; 
+	column-count: 2 
+}
+.zl-BaozhangDetail {
+	width: 347rpx; 
+	height: 40rpx; 
+	text-align: left; 
+	margin-bottom: 30rpx; 
+}
+.zl-Baozhangimage {
+	width: 28rpx; 
+	height: 28rpx; 
+	float: left; 
+	margin-top: 6rpx; 
+}
+.zl-Baozhangtext { 
+	font-size:28rpx; 
+	margin-left: 10rpx; 
+	height: 40rpx; 
+	line-height: 40rpx; 
+	float: left; 
+	color: #4A4A4A;
+}
+.active .zl-Baozhangtext {
+	color: #ff6335; 
+}
+.zl-zf { 
+	text-align: left; 
+	background-color: white;
+	border-top-left-radius: 20rpx; 
+	border-top-right-radius: 20rpx; 
+	padding-top: 10rpx; 
+}
+.zl-fwimage{ 
+	width: 44rpx; 
+	height: 44rpx; 
+	margin-left: 30rpx; 
+	vertical-align: middle; 
+}
+.zl-fwtext {
+	font-weight: bold; 
+	vertical-align: middle; 
+	margin-left:10rpx; 
+	font-size: 44rpx; 
+}
+.zl-moveimage {
+	vertical-align: middle; 
+	width: 60rpx; 
+	height: 60rpx; 
+	padding-right: 30rpx;
+	padding-top: 7rpx;
+	padding-bottom: 7rpx; 
+}
+.zl-zfmoveLeft { 
+	float: right; 
+}
+/* .btn{
   height: 3vh;
   width: 12vw;
   background-color: #db8bbb;
@@ -70,4 +308,4 @@
 
 .btn-area {
   width: 100%;
-}
+} */
