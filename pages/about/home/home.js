@@ -65,6 +65,13 @@ Component({
         modalName: null
       })
     },
+    tomyExpert(options){
+      console.log("查看我的预约状态")
+      wx.navigateTo({
+        url: '/pages/about/status/status'
+      })
+
+    },
     showQrcode() {
       wx.previewImage({
         urls: ['https://image.weilanwl.com/color2.0/zanCode.jpg'],

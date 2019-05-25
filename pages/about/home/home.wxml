@@ -45,9 +45,9 @@
     </navigator>
   </view>
   <view class="cu-item arrow">
-    <view class='content' bindtap="showQrcode">
-      <text class='icon-appreciatefill text-red'></text>
-      <text class='text-grey'>赞赏支持</text>
+    <view class='content' bindtap="tomyExpert">
+      <text class='icon-newsfill text-red'></text>
+      <text class='text-grey'>我的预约</text>
     </view>
   </view>
   <view class="cu-item arrow">

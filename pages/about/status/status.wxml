@@ -1,0 +1,15 @@
+<!-- 自定义头部navigationBar -->
+
+<view class="cu-custom" style="height:150rpx;">
+  <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
+    <view bindtap='back' class='btn'>返回</view>
+    <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>我的预约</text>
+  </view>
+</view>
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="bold cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{status}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{item}}
+    </view>
+  </view>
+</scroll-view>
