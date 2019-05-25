@@ -1,4 +1,17 @@
+@import "/pages/testPage/colorui/main.wxss";
+@import "/pages/testPage/colorui/icon.wxss";
 
+scroll-view{
+  height:100vh;
+  width:100vw;
+}
+
+/*
+.titlebar{
+  background-color: rgb(113, 187, 255);
+  height: 11vh;
+  adding-top: 55rpx;
+}
 scroll-view{
   height:100vh;
   width:100vw;
@@ -18,4 +31,4 @@ scroll-view{
 .title{
   display: block;
   text-align: center;
-}
+}*/
