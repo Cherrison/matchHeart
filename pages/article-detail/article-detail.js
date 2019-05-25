@@ -9,7 +9,8 @@ Page({
       "/images/btn/moon--current.png",
       "/images/btn/sun--default.png"
       ],
-    currentTheme:1
+    currentTheme:1,
+    title:"文章详情页"
   },
   onLoad: function (options) {
     const _ts = this;

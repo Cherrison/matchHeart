@@ -1,4 +1,90 @@
-  <view class="cu-custom" style="height:150rpx;">
+<!-- 自定义头部navigationBar -->
+
+<view class="cu-custom" style="height:150rpx;">
+  <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
+    <view bindtap='back' class='btn'>返回</view>
+    <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>{{title}}</text>
+  </view>
+</view>
+
+<view class="content">
+  <scroll-view scrollX="false" scrollY="false" style="padding-bottom:200rpx;">
+    <view class="zl-d">
+      <image class="head_introduce_bg" src="https://s2.ax1x.com/2019/05/25/VkspvQ.png"></image>
+      <view class="box_b">
+        <view class="head_img_layout">
+
+        <!-- 这个地方是头像 -->
+
+          <image catchtap="onClickImg" class="head_img" data-src="{{user_info.real_logo?user_info.real_logo:'http://resource.soulbuddy.cn/public/images/miniprogram/ew.png'}}" mode="aspectFill" src="https://mmbiz.qpic.cn/mmbiz_jpg/pIw4yQMzALwmSmTicIjjZ6h59fX4wZNTgnUGkSBxHa9zVegsuVAibMnAdO4DjLlS60k6SPGJuKUNlib4bLLkCbcYA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1"></image>
+        </view>
+        <view class="user_name_layout">
+
+          <!-- 名字和预约状态 -->
+
+          <text class="user_name">李老师</text>
+          <view class="user_statue" style="background-color:lightgreen">可预约</view>
+        </view>
+        <view class="user_intro">花地哦啊花地哦啊后改皇帝还哦的后果</view>
+      </view>
+      <view class="title_layout_plateforem">
+        <image class="zl-fwimage" src="http://resource.soulbuddy.cn/public/images/ic_plateform_v.png"></image>
+        <text class="zl-fwtext">本心理咨询中心承若</text>
+        <image class="title_gantan_img" src="https://www.cheery.pro/images/ic_gantan.png"></image>
+      </view>
+      <view class="zl-Baozhang">
+        <view class="zl-BaozhangDetail">
+          <image class="zl-Baozhangimage" src="{{guaranteeH}}"></image>
+          <text class="zl-Baozhangtext">本校咨询预约免费</text>
+        </view>
+        <view class="zl-BaozhangDetail">
+          <image class="zl-Baozhangimage" src="{{guaranteeH}}"></image>
+          <text class="zl-Baozhangtext">保护您的隐私</text>
+        </view>
+        <view class="zl-BaozhangDetail">
+          <image class="zl-Baozhangimage" src="{{guaranteeH}}"></image>
+          <text class="zl-Baozhangtext">来访者隐私安全</text>
+        </view>
+        <view class="zl-BaozhangDetail active">
+          <image class="zl-Baozhangimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/check-circle.png"></image>
+          <text class="zl-Baozhangtext">为您提供100%诚意服务</text>
+        </view>
+      </view>
+      <view class="zl-zf">
+        <image class="zl-fwimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/icon_ziliao@2x.png"></image>
+        <text class="zl-fwtext">咨询师资料</text>
+      </view>
+      <!--引入towxml模版入口文件，并使用模版-->
+
+      <import src="/towxml/entry.wxml" />
+
+      <template is="entry" data="{{...article}}" />
+      <view class="zl-zf">
+        <image class="zl-fwimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/icon_wenda@2x.png"></image>
+        <text class="zl-fwtext">问答回复记录</text>
+        <view catchtap="getmove" class="zl-zfmoveLeft">
+          <image class="zl-moveimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/left.png"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+
+  <view class="pos cu-bar bg-white tabbar border shop">
+    <button class="action" open-type="contact">
+      <view style='font-size:60rpx;'class="icon-service text-green">
+      </view>
+      客服
+    </button>
+    <view class="cu-bar btn-group">
+      <button class="cu-btn bg-green shadow-blur round lg" bindtap='gotoOrder'>立即预约</button>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- <view class="cu-custom" style="height:150rpx;">
     <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
       <view bindtap='back' class='btn'>返回</view>
       <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>预约咨询</text>
@@ -47,4 +133,4 @@
       <button formType="reset">重置</button>
     </view>
   </form>
-</view>
+</view> -->
