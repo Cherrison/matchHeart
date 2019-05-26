@@ -92,10 +92,11 @@ Page({
   },
   hideModal(e) {
     console.log(e.currentTarget.dataset.chose)
+    var that = this
     if (e.currentTarget.dataset.chose=='confirm'){
       console.log("在线填写信息")
       wx: wx.navigateTo({
-        url: '/pages/order/form'
+        url: '/pages/order/form?&day=' + that.data.currentTime % 4 + '&time='+ parseInt(that.data.currentTime / 4)
       })
     }
    else{
@@ -144,10 +145,10 @@ Page({
   },
   select: function (event) {
     //为上半部分的点击事件
-    this.setData({
+    /*this.setData({
       currentIndex: event.currentTarget.dataset.index
     })
-    console.log(event.currentTarget.dataset.date)
+    console.log(event.currentTarget.dataset.date)*/
   },
   selectTime: function (event) {
     //为下半部分的点击事件
