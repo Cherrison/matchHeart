@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/order/order",
+    "pages/testPage/testPage",
     "pages/home/home",
+    "pages/about/status/status",
+    "pages/order/order",
     "pages/order/form",
     "pages/testPage/testDetail/testDetail",
-    "pages/testPage/testPage",
     "pages/article-detail/article-detail",
     "pages/home/assess/assess",
     "pages/home/assess/result/result",
@@ -15,8 +16,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/listen/listen",
-    "pages/about/home/home",
-    "pages/about/status/status"
+    "pages/about/home/home"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

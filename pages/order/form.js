@@ -38,7 +38,7 @@ Page({
       },
       data:{
         type:'send',
-        info:that.data.info,
+        info:JSON.stringify(that.data.info),
         teacher:that.data.teacher,
         day:that.data.day,
         time:that.data.time,
@@ -47,6 +47,14 @@ Page({
       },
       success:function(res){
         console.log(res)
+        if(res.data == 'success')
+          wx.showToast({
+            title: '预约成功'
+          })
+        else if(res.data == '已预约')
+          wx.showToast({
+            title: '已存在预约',
+          })
       }
     })
   },
