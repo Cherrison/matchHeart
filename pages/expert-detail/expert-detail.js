@@ -3,6 +3,7 @@
 const app = getApp();
 Page({
   data: {
+    name:"",
     //article将用来存储towxml数据
     article: {},
     title:"咨询师详情",
@@ -10,6 +11,7 @@ Page({
   },
   onLoad: function (options) {
     const _ts = this;
+    this.data.name = options.name
     console.log(options)
     //请求markdown文件，并转换为内容
     wx.request({
@@ -44,8 +46,9 @@ Page({
     wx.navigateBack()
   },
   gotoOrder(){
+    var that = this
     wx.navigateTo({
-      url: '/pages/order/order',
+      url: '/pages/order/order?teacher=' + that.data.name,
     })
   }
 })

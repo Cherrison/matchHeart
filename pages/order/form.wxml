@@ -82,5 +82,5 @@
     </checkbox-group>
   <view class='fege'></view>
   <view style='background-color: var(--white); display:flex;padding:50rpx; justify-content:center;width:100%;'>
-    <button style='width:200rpx;'class="cu-btn lg bg-green shadow" bindsubmit='submit' data-target="DialogModal1">确定</button>
+    <button style='width:200rpx;'class="cu-btn lg bg-green shadow" bindtap='submit' data-target="DialogModal1">确定</button>
   </view>

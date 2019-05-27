@@ -7,6 +7,9 @@ App({
     inner:"",
     src:"",
     isPlay:false,
+    id:"3",
+    name:"name",
+
   },
   towxml: new Towxml(),                    //创建towxml对象，供小程序页面使用
   setMusic: function (title, coverImgUrl, singer, epname, src) {

@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    teacher:"",
     calendar: [
       { "week": "星期一", "date": "2019-5-27" },
       { "week": "星期二", "date": "2019-5-28" },
@@ -43,6 +44,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    this.data.teacher = options.teacher
     wx.request({
       url: 'https://www.clearn.site/wxapi/date.php',
       header: {
@@ -124,7 +126,7 @@ Page({
     if (e.currentTarget.dataset.chose=='confirm'){
       console.log("在线填写信息")
       wx: wx.navigateTo({
-        url: '/pages/order/form?&day=' + that.data.currentTime % 4 + '&time='+ parseInt(that.data.currentTime / 4)
+        url: '/pages/order/form?teacher=' + that.data.teacher + '&day=' + that.data.currentTime % 5 + '&time='+ parseInt(that.data.currentTime / 5)
       })
     }
    else{
