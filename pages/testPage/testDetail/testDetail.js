@@ -26,6 +26,10 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        for(let i = 0;i < res.data.length;i++){
+          res.data[i][1] = JSON.parse(res.data[i][1])
+        }
+        console.log(res)
         that.setData({
           test: res.data
         })

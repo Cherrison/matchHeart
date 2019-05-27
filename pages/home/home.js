@@ -173,7 +173,7 @@ Component({
             if (app.data.src != "")
               for (let i = 0; i < that.data.listenList.length; i++)
                 if (that.data.listenList[i].src == app.data.src) {
-                  console.log(i)
+                  if(app.data.isPlay)
                   that.setData({
                     listenIndex: i,
                     'bgAudioState.playState': 1
