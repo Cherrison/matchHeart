@@ -45,7 +45,7 @@
   bindchange='change'
   current='{{currentIndex}}'
 >
-  <block wx:for="{{data}}" wx:for-index="index" style="height:100%;">
+  <block wx:for="{{data}}" wx:for-index="index" wx:key="" style="height:100%;">
     <swiper-item class="radius shadow text-xl" style='height:100%;align-items:center;display:flex;flex-direction:column;'>
       <text>{{item[0]}}</text>
       <view class='text-center' style='display:flex;flex-direction:column;padding:15rpx;'>

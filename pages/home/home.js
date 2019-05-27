@@ -8,6 +8,20 @@ Component({
    * 页面的初始数据
    */
   data: {
+    binner: [
+      {
+        url:"https://s2.ax1x.com/2019/05/27/VZI6QH.png",
+        msg:"简答的介绍"
+      }, 
+      {
+        url: "https://s2.ax1x.com/2019/05/27/VZImss.png",
+        msg: "简答的介绍"
+      },
+      {
+        url: "https://s2.ax1x.com/2019/05/27/VZI5Y8.png",
+        msg: "简答的介绍"
+      }
+    ],
     maxTime:"",
     inter: "",
     startTime: "0:00",
@@ -62,27 +76,7 @@ Component({
     listenList: [{
       id: 74,
       coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      title: "“单身多年， 你孤独吗？",
-      author: "小海",
-      boutique: 1,
-      classify: 1,
-      src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
-      rank: 0,
-      hot: 28293
-    }, {
-      id: 74,
-      coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      title: "“单身多年， 你孤独吗？",
-      author: "小海",
-      boutique: 1,
-      classify: 1,
-      src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
-      rank: 0,
-      hot: 28293
-    }, {
-      id: 74,
-      coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      title: "“单身多年， 你孤独吗？",
+      title: "此时此刻",
       author: "小海",
       boutique: 1,
       classify: 1,
