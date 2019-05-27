@@ -1,0 +1,18 @@
+<cu-custom bgColor="bg-gradual-blue" >
+  <view slot="content">欢迎使用</view>
+</cu-custom>
+<view class='contain'>
+  <swiper autoplay="true" circular="true" class="card-swiper square-dot banner-group" duration="500" indicatorActiveColor="#02c161" indicatorColor="#8799a3" indicatorDots="true" interval="3000">
+    <swiper-item class="{{cardCur==index?'cur':''}} banner-item" wx:for="{{binner}}" wx:key="">
+      <view class="swiper-item">
+        <image class="banner-img" mode="aspectFill" src="{{item}}"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class="flex justify-center margin-top">
+    <button bindtap="getUserInfo" class="cu-btn bg-green round lg shadow">立即体验</button>
+  </view>
+  <view class="info-bottom">
+    <text class="text-lg text-gray">温馨提示:获得授权才能体验小程序全部的功能哦</text>
+  </view>
+</view>

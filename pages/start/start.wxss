@@ -1,0 +1,19 @@
+.banner-group,.banner-item {
+    width: 750rpx!important;
+    height: 80vh!important;
+}
+
+.banner-img {
+    margin-left: 60rpx;
+    width: 90%;
+    height: 70vh;
+    border-radius: 12rpx;
+}
+
+.info-bottom{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding-top: 7vh;
+}

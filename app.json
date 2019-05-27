@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/testPage/testPage",
+    "pages/start/start",
     "pages/home/home",
     "pages/about/status/status",
     "pages/order/order",
@@ -16,7 +16,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/listen/listen",
-    "pages/about/home/home"
+    "pages/about/home/home",
+    "pages/about/status/status",
+    "pages/testPage/testDetail/testDetail"
+    
+   
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

@@ -1,7 +1,7 @@
 <!-- 自定义头部navigationBar -->
 
 <view class="cu-custom" style="height:130rpx;">
-  <view class="cu-bar fixed bg-gradual-pink" style="height:130rpx;padding-top:10px;">
+  <view class="cu-bar fixed bg-gradual-blue" style="height:130rpx;padding-top:10px;">
     <text style='font-weight:bolder;margin-left:340rpx;margin-top:50rpx;'>首页</text>
   </view>
 </view>
@@ -10,11 +10,11 @@
 <!-- ----------------------------------------------------- -->
 
 <!-- 首页主体部分 -->
-<scroll-view bindscroll="scroll" class="container" style='backgroud-color:green' scrollY="true">
+<scroll-view class="container" style='backgroud-color:green' scrollY="true">
 
   <swiper style='margin-top:100rpx;' class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-    <swiper-item wx:for="{{4}}" wx:key class="{{cardCur==index?'cur':''}}">
-      <view class='bg-img shadow-blur' style="background-image:url(https://image.weilanwl.com/img/4x3-{{index+1}}.jpg)"></view>
+    <swiper-item wx:for="{{binner}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class='bg-img shadow-blur' style="background-image:url({{item.url}})"></view>
     </swiper-item>
   </swiper>
 
@@ -47,7 +47,7 @@
       <view class="play-main">
         <image class="photo" lazyLoad="true" src="{{listenList[listenIndex].coverImgUrl}}"></image>
         <view class="play-box">
-          <label class="key" hidden="{{listenList[listenIndex].boutique==1?false:true}}">新</label>
+          <label class="key" hidden="{{listenList[listenIndex].boutique==1?false:true}}">推荐</label>
           <view class="tit">{{listenList[listenIndex].title}}</view>
           <view class="text">{{listenList[listenIndex].author}}
             <label wx:for="{{listenList.tag}}" wx:key="name">
@@ -76,13 +76,16 @@
 
 
 
-  <view class="home-tit article-class">
-    <view class="name">文章</view>
-    <navigator class="more" url="/pages/home/knowis/knowis?bigType=2"></navigator>
+  <view class="infobar">
+        <image class="fimage" src="https://s2.ax1x.com/2019/05/27/VZHsAI.png"></image>
+        <text class="ftext">最新资讯</text>
+        <view catchtap="getmore" class="moreLeft">
+          <image class="moreimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/left.png"></image>
+        </view>
   </view>
-  <scroll-view class="article-swiper" scroll-x  style='white-space: nowrap;width:100vw;'>
-    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail' style='display:inline-block;'>
-      <image class='shadow-lg  ' lazyLoad="true" mode="aspectFill" src="{{item.imgurl}}"></image>
+<scroll-view class="article-swiper" scroll-x >
+    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail' >
+      <image lazyLoad="true" mode="aspectFill" src="{{item.imgurl}}"></image>
       <view class="item-main ">
         <view class="tit">{{item.title}}</view>
         <view class="text">{{item.description}}</view>
@@ -92,45 +95,5 @@
         </view>
       </view>
     </navigator>
-  </scroll-view>
-
-
-  <!-- 心理测试 -->
-
-  <!-- <view class="home-tit evaluation-class">
-          <view class="name">心里测试</view>
-          <navigator class="more" url="/pages/assess/assess"></navigator>
-        </view>
-        <view class="assess">
-          <navigator class="item" url="/pages/topic_home/topic_home?id={{item.id}}" wx:for="{{appraisalList}}" wx:key="id">
-            <image lazyLoad="true" mode="aspectFill" src="{{item.thumbnail}}"></image>
-            <view class="item-main">
-              <view class="tit">{{item.title}}</view>
-              <view class="text">{{item.subTitle}}</view>
-              <view class="box">
-                <view class="count">{{item.evaluation}}已测</view>
-                <view class="price" wx:if="{{phoneSystem!='iOS'}}">￥{{item.price}}
-                  <label>￥{{item.marketPrice}}</label>
-                </view>
-              </view>
-            </view>
-          </navigator>
-        </view> -->
-
-
-  <!-- 心声--音乐模块 -->
-
-  <!-- <view class="home-tit music-class">
-          <view class="name">小海心声</view>
-          <navigator class="more" url="/pages/listen/listen"></navigator>
-        </view>
-        <scroll-view class="listen" scrollX="true">
-          <navigator class="item" url="/pages/listen-detail/listen-detail?listen_id={{item.id}}&type={{item.classify}}" wx:for="{{bottomListenList}}" wx:key="id">
-            <image lazyLoad="true" mode="aspectFill" src="{{item.head_img}}"></image>
-            <view class="item-tit">{{item.song_name}}</view>
-            <view class="item-name">{{item.author}}</view>
-          </navigator>
-        </scroll-view>
-        <view class="h116"></view> -->
-
+</scroll-view>
 </scroll-view>
