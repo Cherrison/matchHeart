@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info:{},
   },
   back() {
     wx.navigateBack()
@@ -15,6 +15,33 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.time, options.day)
+  },
+
+  submit:function(e){
+    var that = this
+    wx.request({
+      url: 'https://www.clearn.site/wxapi/date.php',
+      method:"POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        type:'send',
+        info:that.data.info
+      },
+      success:function(res){
+        console.log(res)
+      }
+    })
+  },
+
+  change:function(e){
+    console.log(e.detail.value, e.target.dataset.index)
+    var tmp = this.data.info
+    tmp[e.target.dataset.index] = e.detail.value
+    this.setData({
+      info:tmp
+    })
   },
 
   /**

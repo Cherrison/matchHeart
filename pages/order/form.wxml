@@ -13,73 +13,73 @@
   </view>
 </view>
 <view class='fege'></view>
-<radio-group>
+<radio-group bindchange='change' data-index='0'>
 		<view class="form-group padding-top">
       <text class="top">你在家中的排行</text>
         <view class='choice'>
-          <view><radio></radio>独生子女</view>
-          <view><radio></radio>老大</view>
-          <view><radio></radio>老小</view>
-          <view><radio></radio>其它</view>
+          <view><radio value='独生子女'></radio>独生子女</view>
+          <view><radio value='老大'></radio>老大</view>
+          <view><radio value='老小'></radio>老小</view>
+          <view><radio value='其它'></radio>其它</view>
         </view>
     </view>
 </radio-group>
-<radio-group class="block">
+<radio-group class="block" bindchange='change' data-index='1'>
 		<view class="form-group">
       <text class="top">你成长所在地</text>
         <view class='choice'>
-          <view><radio></radio>农村</view>
-          <view><radio></radio>乡镇</view>
-          <view><radio></radio>县城/小城市</view>
-          <view><radio></radio>大城市</view>
+          <view><radio value='农村'></radio>农村</view>
+          <view><radio value='乡镇'></radio>乡镇</view>
+          <view><radio value='县城/小城市'></radio>县城/小城市</view>
+          <view><radio value='大城市'></radio>大城市</view>
         </view>
     </view>
 </radio-group>
-<radio-group class="block">
+<radio-group class="block" bindchange='change' data-index='2'>
 		<view class="form-group">
       <text class="top">以前是否曾寻求过心理咨询</text>
         <view class='choice'>
-          <view><radio></radio>是</view>
-          <view><radio></radio>否(如果是,请填写详细信息)</view>
+          <view><radio value='是'></radio>是</view>
+          <view><radio value='否'></radio>否(如果是,请填写详细信息)</view>
         </view>
     </view>
 </radio-group>
 <view class="cu-form-group align-start">
 		<view class="title">咨询机构及原因</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写..."></textarea>
+		<textarea bindinput='change' data-index='3' maxlength="-1" disabled="{{modalName!=null}}" placeholder="请填写..."></textarea>
 </view>
 <view class="cu-form-group align-start">
 		<view class="title">咨询时间次数</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写..."></textarea>
+		<textarea bindinput='change' data-index='4' maxlength="-1" disabled="{{modalName!=null}}" placeholder="请填写..."></textarea>
 </view>
 <view class="form-group">
     <text class="top-sm">近一年中是否发生过对你有重大意义的事情？（如亲友生病、亡故、失业、法律诉讼，父母分居、离异，学业遇挫、受到学校处分、失恋、生病等）</text>
-		<textarea style='padding:30rpx;' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写..."></textarea>
+		<textarea bindinput='change' data-index='5' style='padding:30rpx;' maxlength="-1" disabled="{{modalName!=null}}" placeholder="请填写..."></textarea>
 </view>
-<radio-group class="block">
+<radio-group class="block" bindchange='change' data-index='6'>
 		<view class="form-group">
       <text class="top">你是如何得知我们中心的</text>
-          <view><radio></radio>本中心的宣传或活动，如讲座、海报、宣传册、新生测试等</view>
-          <view><radio></radio>相关课程的介绍</view>
-          <view><radio></radio>教师或辅导员的推荐</view>
-          <view><radio></radio>其他</view>
+          <view><radio value='本中心的宣传或活动，如讲座、海报、宣传册、新生测试等'></radio>本中心的宣传或活动，如讲座、海报、宣传册、新生测试等</view>
+          <view><radio value='相关课程的介绍'></radio>相关课程的介绍</view>
+          <view><radio value='教师或辅导员的推荐'></radio>教师或辅导员的推荐</view>
+          <view><radio value='其他'></radio>其他</view>
     </view>
 </radio-group>
-		<view class="form-group">
+		<checkbox-group class="form-group" bindchange='change' data-index='7'>
       <text class="top">你现在最需要帮助解决的问题是什么(多选)</text>
          <view class='choice'>
-          <view><radio></radio>学习</view>
-          <view><radio></radio>人格</view>
-          <view><radio></radio>人际交往</view>
-          <view><radio></radio>情绪</view>
+          <view><radio value='学习'></radio>学习</view>
+          <view><radio value='人格'></radio>人格</view>
+          <view><radio value='人际交往'></radio>人际交往</view>
+          <view><radio value='情绪'></radio>情绪</view>
         </view>
         <view class='choice'>
-          <view><radio></radio>就业</view>
-          <view><radio></radio>感情</view>
-          <view><radio></radio>个人发展</view>
-          <view><radio></radio>环境适应</view>
+          <view><radio value='就业'></radio>就业</view>
+          <view><radio value='感情'></radio>感情</view>
+          <view><radio value='个人发展'></radio>个人发展</view>
+          <view><radio value='环境适应'></radio>环境适应</view>
         </view>
-    </view>
+    </checkbox-group>
   <view class='fege'></view>
   <view style='background-color: var(--white); display:flex;padding:50rpx; justify-content:center;width:100%;'>
     <button style='width:200rpx;'class="cu-btn lg bg-green shadow" bindsubmit='submit' data-target="DialogModal1">确定</button>

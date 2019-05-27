@@ -32,16 +32,16 @@
 
 <view class='containt'>
   <scroll-view class="scroll-view_H" scroll-x>
-    <view class='list' style='width:{{ width }}rpx'>
-      <view bindtap="select" wx:for="{{ calendar }}" wx:for-item="item" wx:for-index="index" data-index="{{ index }}" class='listItem' wx:key='' data-date="{{ item.date}}">
+    <view class='list' style='width:100vw'>
+      <view bindtap="select" wx:for="{{ calendar }}" wx:for-item="item" wx:for-index="index" data-index="{{ index }}" class='listItem' wx:key='' data-date="{{ item.date}}" style='width:20vw;'>
         <text class='name'>{{ item.week }}</text>
         <text class='date'>{{ item.date }}</text>
       </view>
     </view>
   </scroll-view>
 
-  <view class="grid col-4 padding-sm">
-    <view class="padding-sm" wx:for="{{timeArr}}" data-time="{{item.time}}"wx:for-index="timeIndex"data-Tindex="{{ timeIndex }}" wx:key=""bindtap='selectTime'>
+  <view class="grid col-5 padding-sm">
+    <view class="padding-sm" wx:for="{{timeArr}}" data-time="{{item.time}}"wx:for-index="timeIndex"data-Tindex="{{ timeIndex }}" wx:key=""bindtap='selectTime' style='padding:10rpx;padding-bottom:15rpx;'>
       <view class="{{ currentTime==timeIndex? 'selected' :'' }} bg-{{item.status==can?'yellow':'grey'}} padding radius text-center shadow-blur">
         <view class="text-lg">{{ item.status}}</view>
         <view class="margin-top-sm text-Abc">{{item.time}}</view>
