@@ -47,7 +47,7 @@ App({
     } else {
       wx.getUserInfo({
         success: function (res) {
-          console.log('用户信息', res.userInfo)
+          console.log('appjs用户信息', res.userInfo)
           that.globalData.userInfo = res.userInfo
           typeof cb == "function" && cb(that.globalData.userInfo)
         }
@@ -72,7 +72,7 @@ App({
         let custom = wx.getMenuButtonBoundingClientRect();
         console.log(custom)
         this.globalData.Custom = custom;
-        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight*0.4;
         console.log(this.globalData.CustomBar);
       }
     })

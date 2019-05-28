@@ -10,7 +10,7 @@
     </swiper-item>
   </swiper>
   <view class="flex justify-center margin-top">
-    <button bindtap="getUserInfo" class="cu-btn bg-green round lg shadow">立即体验</button>
+    <button bindgetuserinfo="getUserInfo" open-type='getUserInfo' class="cu-btn bg-green round lg shadow">立即体验</button>
   </view>
   <view class="info-bottom">
     <text class="text-lg text-gray">温馨提示:获得授权才能体验小程序全部的功能哦</text>

@@ -1,7 +1,7 @@
 <view class='UCenter-bg'>
-  <image src='/images/logo.png' class='png' mode='widthFix'></image>
-  <view class='text-xl'>小海心灵
-    <text class='text-df'>v2.0</text>
+  <image src='{{usrinfo.avatarUrl}}' class='round png' mode='widthFix'></image>
+  <view class='text-xl'>{{usrinfo.nickName}}
+    <text class='text-df'>v1</text>
   </view>
   <view class='margin-top-sm'>
     <text>By:Cherrison</text>

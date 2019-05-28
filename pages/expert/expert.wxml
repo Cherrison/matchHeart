@@ -6,8 +6,6 @@
         <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>咨询页面</text>
       </view>
     </view>
-
-
 <!-- ----------------------------------------------------- -->
 <!-- 咨询页主体部分  -->
 <scroll-view scroll-x scroll-with-animation  style='z-index:999;'class="topbar bg-green nav" scroll-left="{{scrollLeft}}">
@@ -15,30 +13,23 @@
         <text class='icon-favorfill'></text> 全部
       </view>
       <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="1">
-        <text class='icon-camerafill'></text> 抑郁
+        <text class='icon-camerafill'></text> 情绪调节
       </view>
       <view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="2">
-        <text class='icon-upstagefill'></text> 自卑
+        <text class='icon-upstagefill'></text> 亲密关系
       </view>
       <view class="cu-item {{3==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="3">
-        <text class='icon-clothesfill'></text> 情感
+        <text class='icon-clothesfill'></text> 学业压力
       </view>
       <view class="cu-item {{4==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="4">
-        <text class='icon-timefill'></text> 分类5
+        <text class='icon-timefill'></text> 心理创伤
       </view>
       <view class="cu-item {{5==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="5">
-        <text class='icon-clothesfill'></text> 皮肤1
+        <text class='icon-clothesfill'></text> 人际关系
       </view>
       <view class="cu-item {{6==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="6">
-        <text class='icon-camerafill'></text> 数码2
+        <text class='icon-camerafill'></text> 生涯规划
       </view>
-      <view class="cu-item {{7==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="7">
-        <text class='icon-upstagefill'></text> 排行榜2
-      </view>
-      <view class="cu-item {{8==TabCur?'text-white cur':''}}" bindtap='tabSelect' data-id="8">
-        <text class='icon-clothesfill'></text> 皮肤2
-      </view>
-
     </scroll-view >
 
   <view class='allbottom'>

@@ -95,12 +95,7 @@ Component({
       this.play()
       this.play()
       var that = this
-      t.getUserInfo(function (usercb) {
-        that.setData({
-          userinfo: usercb,
-          nickName: usercb.nickName,
-          imageurl: usercb.avatarUrl
-        })//下面获取文章列表
+//下面获取文章列表
         wx.request({
           url: 'https://www.clearn.site/wxapi/getArticle.php',
           method:"POST",
@@ -160,9 +155,6 @@ Component({
                 }
             }
         })
-        console.log('用户名称: ', usercb)
-        console.log('用户名称1: ', that.data.userinfo)
-      })
     },
     Show:function(e){
       console.log("show")

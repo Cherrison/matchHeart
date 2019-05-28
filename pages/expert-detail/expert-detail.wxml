@@ -16,16 +16,16 @@
 
         <!-- 这个地方是头像 -->
 
-          <image catchtap="onClickImg" class="head_img" data-src="{{user_info.real_logo?user_info.real_logo:'http://resource.soulbuddy.cn/public/images/miniprogram/ew.png'}}" mode="aspectFill" src="https://mmbiz.qpic.cn/mmbiz_jpg/pIw4yQMzALwmSmTicIjjZ6h59fX4wZNTgnUGkSBxHa9zVegsuVAibMnAdO4DjLlS60k6SPGJuKUNlib4bLLkCbcYA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1"></image>
+          <image catchtap="onClickImg" class="head_img" data-src="{{user_info.real_logo?user_info.real_logo:'http://resource.soulbuddy.cn/public/images/miniprogram/ew.png'}}" mode="aspectFill" src="{{info.pic_url}}"></image>
         </view>
         <view class="user_name_layout">
 
           <!-- 名字和预约状态 -->
 
-          <text class="user_name">李老师</text>
+          <text class="user_name">{{info.name}}</text>
           <view class="user_statue" style="background-color:lightgreen">可预约</view>
         </view>
-        <view class="user_intro">花地哦啊花地哦啊后改皇帝还哦的后果</view>
+        <view class="user_intro">{{info.heartmsg}}</view>
       </view>
       <view class="title_layout_plateforem">
         <image class="zl-fwimage" src="http://resource.soulbuddy.cn/public/images/ic_plateform_v.png"></image>

@@ -7,12 +7,32 @@ Page({
     //article将用来存储towxml数据
     article: {},
     title:"咨询师详情",
-    guaranteeH: "http://resource.soulbuddy.cn/public/images/miniprogram/check-circle.png"
+    guaranteeH: "http://resource.soulbuddy.cn/public/images/miniprogram/check-circle.png",
+    dataList:[],
+    info:""
   },
   onLoad: function (options) {
     const _ts = this;
     this.data.name = options.name
     console.log(options)
+    wx.getStorage({
+      key: 'dataList',
+      success: function(res) {
+        _ts.setData({
+          dataList: res.data
+        })
+        console.log(res.data)
+        for (var i = 0; i < _ts.data.dataList.length; i++) {
+          if (_ts.data.dataList[i].tid == options.id) {
+            _ts.setData({
+              info: _ts.data.dataList[i]
+            })
+            break;
+          }
+        }
+      },
+    })
+    
     //请求markdown文件，并转换为内容
     wx.request({
       url: 'https://www.cheery.pro/teacher/'+ options.id +'.md',
@@ -25,7 +45,6 @@ Page({
           res.data,               // `markdown`或`html`文本内容
           'markdown'              // `markdown`或`html`
         );
-        console.log(res.data)
         //前台初始化小程序数据（2.1.2新增，如果小程序中无相对资源需要添加`base`根地址，也无`audio`内容可无需初始化）
         data = app.towxml.initData(data, {
           base: 'https://xxx.com/',    // 需要解析的内容中相对路径的资源`base`地址

@@ -6,16 +6,16 @@
     <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>我的预约</text>
   </view>
 </view>
-<!--<scroll-view scroll-x class="bg-white nav">
+<scroll-view scroll-x class="bg-white nav">
   <view class="flex text-center">
     <view class="bold cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{status}}" wx:key bindtap="tabSelect" data-id="{{index}}">
       {{item}}
     </view>
   </view>
-</scroll-view>-->
+</scroll-view>
 
 <scroll-view scroll-y='true' scroll-x='false' style='width:100vw;height:80vh;display:flex;justify-items:center;'>
-<view wx:for='{{data}}' style='padding:25rpx;'>
+<view wx:for='{{data}}' wx:if='{{status[TabCur]=="全部.."?1:item.status==status[TabCur]?1:0}}'style='padding:25rpx;'>
   <view style='margin:auto;box-shadow: 15rpx 15rpx 35rpx;font-size:35rpx;padding:25rpx;'>
     <view>姓名：{{item.studentname}}</view>
     <view>状态{{item.status}}</view>
