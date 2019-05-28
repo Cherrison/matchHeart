@@ -48,10 +48,39 @@ getData:function(){
 },
 
   todetail:function(e){
-    var articleId = e.currentTarget.dataset.articleId;
+    var that = this
+    var Id = e.currentTarget.dataset.id
+    var articleId = e.currentTarget.dataset.articleid
+    console.log(e)
+    var read = this.data.articleList[Id].read
+    var title = this.data.articleList[Id].title
+    wx.request({
+      url: 'https://www.clearn.site/wxapi/getArticle.php',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        type:'update',
+        title:title,
+        read:read - 1 + 2
+      },
+      success:function(res){
+        console.log(res)
+        var str = 'articleList['+Id+'].read'
+        that.setData({
+          [str]:read - 1 + 2
+        })
+      }
+    })
+    console.log(articleId)
     wx.navigateTo({
       url: '/pages/article-detail/article-detail?articleId='+articleId,
     })
+  },
+
+  onShow:function(e){
+    console.log("show")
   },
 
   onLoad: function (options) {
