@@ -170,22 +170,6 @@ Component({
         console.log('用户名称1: ', that.data.userinfo)
       })
     },
-    Show:function(e){
-      console.log("show")
-      if(app.data.src=="")
-        return
-      for(let i = 0;i < listenList.length;i++)
-        if(listenList[i].src == app.data.src){
-          console.log(i)
-          this.setData({
-            listenIndex:i,
-            'bgAudioState.playState':1
-          })
-          if(app.data.isPlay)
-            this.play()
-          return
-        }
-    },
     onReady: function (options) {
       console.log("")
       var app = getApp()
@@ -239,6 +223,7 @@ Component({
 
     // 播放器部分
     sliderChange: function (e) {
+      console.log("sliderChange")
       var playing;
       app.setTime(e.detail.value)
       setInterval(this.setTime, 1000, this)
@@ -264,11 +249,12 @@ Component({
       })
     },
     play: function (t) {
+      console.log('play')
       var app = getApp()
       if (this.data.bgAudioState.playState == 0) {
         console.log('播放')
         this.setData({
-          bgAudioState: this.data.playing
+          'bgAudioState.playState': 1
         })
         app.data.inter = setInterval(this.setTime, 1000, this)
         app.playMusic()
@@ -282,7 +268,7 @@ Component({
         console.log('暂停')
         app.pauseMusic()
         this.setData({
-          bgAudioState: this.data.pause
+          'bgAudioState.playState': 0
         })
         this.setData({
           endTime: util.timeform(a.duration)
@@ -365,18 +351,36 @@ Component({
       var articleId=e.currentTarget.dataset.articleId
       console.log('跳转到文章详情页: '+articleId)
     },
-
-     onShow: function () {
-      
-    }
   },
   pageLifetimes: {
-    show() {
+    /*show() {
       if (typeof this.getTabBar === 'function' && this.getTabBar()) {
         this.getTabBar().setData({
           selected: 0
         })
       }
-    }
+    }*/
+
+    show() {
+      console.log("show")
+      console.log(app.data.isPlay)
+      if (app.data.src == "")
+        return
+      for (let i = 0; i < this.data.listenList.length; i++){
+        if (this.data.listenList[i].src == app.data.src) {
+          if(app.data.isPlay)
+            this.setData({
+            listenIndex: i,
+            'bgAudioState.playState': 1
+            })
+          else
+            this.setData({
+              listenIndex: i,
+              'bgAudioState.playState': 0
+            })
+          break
+        }
+      }
+    },
   }
 })
