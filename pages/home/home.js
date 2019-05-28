@@ -35,22 +35,6 @@ Component({
     StatusBar: t.globalData.StatusBar,
     CustomBar: t.globalData.CustomBar,
     cardCur: 0,
-    stickyNote: {
-      friend_id: 55,
-      user_id: 12,
-      virtual_name: "只懂你心",
-      content: "我很好奇为什么我喜欢的男生（ 他不喜欢我， 而且他知道我喜欢他） 一直躲避我的目光， 很无语， 我又怎么才能让他知道我不喜欢他了呢?",
-      bg_id: 12,
-      bg_img: "https://www.52hertalk.cn/public/upload/friendBg/2018/12-11/62b2933ea6013dd694a5a7404670708c.jpg",
-      like_num: 125,
-      dislike_num: 3,
-      like_status:1
-    },
-    card:{
-      bg: "gradual-blue",
-      name: "只懂你心",
-      color: "我很好奇为什么我喜欢的男生（ 他不喜欢我， 而且他知道我喜欢他） 一直躲避我的目光， 很无语， 我又怎么才能让他知道我不喜欢他了呢?"
-    },
     bgAudioState: {
       starttime: "00: 00",
       endtime: "03: 21",
@@ -75,14 +59,12 @@ Component({
     listenIndex:0,
     listenList: [{
       id: 74,
-      coverImgUrl: "https://www.52hertalk.cn/public/upload/listen/2019/01-14/e179a432d232e209ef84a5d0dd437ac0.png",
-      title: "此时此刻",
-      author: "小海",
-      boutique: 1,
+      coverImgUrl: "https://www.cheery.pro/radio/goodgirl.png",
+      title: "余生那么长，别总自己扛",
+      author: "哎？是我",
       classify: 1,
-      src: "http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46",
+      src: "https://www.cheery.pro/radio/goodgirl.mp3",
       rank: 0,
-      hot: 28293
     }],
     articleList: [{
       articleId: '1',
@@ -293,11 +275,17 @@ Component({
         this.setData({
           maxTime:app.getDuration()
         })
+        this.setData({
+          endTime: util.timeform(a.duration)
+        })
       } else {
         console.log('暂停')
         app.pauseMusic()
         this.setData({
           bgAudioState: this.data.pause
+        })
+        this.setData({
+          endTime: util.timeform(a.duration)
         })
         this.endTime(this)
         clearTimeout()
@@ -306,6 +294,7 @@ Component({
 
     lastSong:function(e){
       console.log('切换到上一首')
+
       var app = getApp()
       var data = this.data.listenList
       if(this.data.listenIndex <= 0)
@@ -316,10 +305,14 @@ Component({
       app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
       if(!this.data.bgAudioState.playState)
         this.play()
+      this.setData({
+        endTime: util.timeform(a.duration)
+      })
     },
 
     nextSong:function(e){
       console.log('切换到下一首')
+
       var data = this.data.listenList
       if (this.data.listenIndex >= (data.length - 1))
         return
@@ -330,6 +323,9 @@ Component({
       app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
       if (!this.data.bgAudioState.playState)
         this.play()
+      this.setData({
+        endTime: util.timeform(a.duration)
+      })
     },
     endTime(that) {
       var app = getApp()

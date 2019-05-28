@@ -19,7 +19,7 @@ const formatNumber = n => {
 function timeform(time) {
   var mini, sec;
   mini = parseInt(time / 60);
-  sec = time % 60;
+  sec = parseInt(time % 60);
   if(sec<10) sec='0'+sec;
   if (mini< 10) mini='0' + mini
   return (mini + ":" + sec);
