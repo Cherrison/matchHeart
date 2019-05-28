@@ -7,7 +7,6 @@ Page({
     isCard: 0,
     showcnt: "0",//已加载的文章数
     listenList: [],
-    play: "/images/play-btn-start.png",
     isPlay: false,
     currentPlayId: 0,
   },
@@ -130,10 +129,27 @@ Page({
           listenList: that.data.listenList,
           showcnt: cnt
         })
+
+        console.log(app.data.src)
+        if (app.data.src == "")
+          return
+        console.log(that.data.listenList)
+        for (let i = 0; i < that.data.listenList.length; i++) {
+          console.log(that.data.listenList[i].src, app.data.src)
+          if (that.data.listenList[i].src == app.data.src) {
+            console.log(i)
+            var str1 = 'listenList[' + i + '].play'
+            var str2 = 'listenList[' + i + '].isPlay'
+            that.setData({
+              [str1]: '/images/play-btn-stop.png',
+              [str2]: true
+            })
+          }
+        }
       }
     })
   },
-
+  
   onLoad: function (options) {
     this.getData()
   },
