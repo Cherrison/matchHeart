@@ -1,0 +1,8 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">留言板</view>
+</cu-custom>
+<view class='cu-card' style='padding:35rpx;font-size:35rpx;'>{{content}}</view>
+<view class="WxComment">
+  <WxComment tipOne="WxComment " tipTwo="Powered by https://github.com/yicm" submitBtnText="回复" articleID="{{articleId}}" contentLen='1' theme="light"></WxComment>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "WxComment": "/WxComment/component/WxComment/WxComment",
+    "cu-custom": "/pages/testPage/colorui/components/cu-custom"
+  }
+}
