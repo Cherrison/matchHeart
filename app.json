@@ -1,23 +1,22 @@
 {
   "pages": [
-    "pages/start/start",
     "pages/home/home",
-    "pages/testPage/testPage",
+    "pages/home/knowis/knowis",
+    "pages/start/start",
+    "pages/about/status/status",
+    "pages/order/order",
+    "pages/order/form",
+    "pages/testPage/testDetail/testDetail",
     "pages/article-detail/article-detail",
     "pages/home/assess/assess",
     "pages/home/assess/result/result",
-    "pages/home/knowis/knowis",
     "pages/home/heartbar/heartbar",
     "pages/expert/expert",
     "pages/expert-detail/expert-detail",
-    "pages/order/order",
-    "pages/order/form",
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/listen/listen",
-    "pages/about/home/home",
-    "pages/about/status/status",
-    "pages/testPage/testDetail/testDetail"
+    "pages/about/home/home"
     
    
   ],

@@ -12,7 +12,7 @@ Page({
   },
   navigate:function(e){
     wx.navigateTo({
-      url: '/pages/home/assess/assess',
+      url: '/pages/testPage/testDetail/testDetail?title=' + e.target.dataset.title,
     })
   },
   onLoad: function (options) {

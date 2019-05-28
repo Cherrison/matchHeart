@@ -1,4 +1,5 @@
 // pages/about/status/status.js
+const app = getApp()
 Page({
 
   /**
@@ -7,6 +8,7 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
+    data:[],
     status:[
       "全部..",
       "申请中",
@@ -25,7 +27,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url:"https://www.clearn.site/wxapi/yuyue.php",
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        type:'getbystudentid',
+        studentid:app.data.id
+      },
+      success:function(res){
+        console.log(res)
+        that.setData({
+          data:res.data
+        })
+      }
+    })
   },
 
   /**

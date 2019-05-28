@@ -44,7 +44,7 @@
   <view class='allbottom'>
     
     <view class="list">
-      <navigator class="item" url="/pages/expert-detail/expert-detail?id={{item.tid}}" wx:for="{{datalist}}" wx:key="category_id" wx:if='{{condition=="all"?1:item.category==condition? 1:0}}'>
+      <navigator class="item" url="/pages/expert-detail/expert-detail?id={{item.tid}}&name={{item.name}}" wx:for="{{datalist}}" wx:key="category_id" wx:if='{{condition=="all"?1:item.category==condition? 1:0}}'>
         <image class="pic" src="{{item.pic_url}}"></image>
         <view class="item_main">
           <view class="tit">{{item.name}}

@@ -7,6 +7,42 @@ Page({
   data: {
     test:[],
     title:"抑郁自测量",
+    select:{},
+    score:[],
+    current:0,
+    result:0,
+    show:false
+  },
+
+  select:function(e){
+    console.log(e)
+    this.data.select[e.target.dataset.id] = e.detail.value
+    if(e.target.dataset.id == this.data.score.length - 1){
+      var len = this.data.score.length
+      var num = 0
+      for (let i = 0; i < len;i++){
+        num = num + 1 * this.data.score[i][this.data.select[i]]
+      }
+      this.setData({
+        result:num,
+        show:true
+      })
+    }
+  },
+
+  next:function(e){
+    var data = this.data
+    if (!data.select[e.target.dataset.id]){
+      wx.showToast({
+        title: '请先选择',
+        icon:'none'
+      })
+      return
+    }
+    if(data.current < data.test.length - 1)
+    this.setData({
+      current:data.current + 1 * 1
+    })
   },
 
   /**
@@ -26,8 +62,18 @@ Page({
       },
       success: function (res) {
         console.log(res)
+        var len = res.data.length
+        for(let i = 0;i < len;i++){
+          res.data[i][1] = JSON.parse(res.data[i][1])
+        }
+        var tmp = []
+        for(let i = 0;i < len;i++){
+          tmp.push(JSON.parse(res.data[i][2]))
+        }
+        console.log(res)
         that.setData({
-          test: res.data
+          test: res.data,
+          score:tmp
         })
       },
       fail: function (res) {

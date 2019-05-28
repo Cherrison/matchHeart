@@ -65,7 +65,6 @@ Component({
       classify: 1,
       src: "https://www.cheery.pro/radio/goodgirl.mp3",
       rank: 0,
-      hot: 28293
     }],
     articleList: [{
       tags: [{
@@ -101,6 +100,65 @@ Component({
           userinfo: usercb,
           nickName: usercb.nickName,
           imageurl: usercb.avatarUrl
+        })//下面获取文章列表
+        wx.request({
+          url: 'https://www.clearn.site/wxapi/getArticle.php',
+          method:"POST",
+          header:{
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data:{
+            type:'title',
+            id:0,
+            num:5
+          },
+          success:function(res){
+            console.log(res)
+            if(!res.data)
+              return
+            var tmp = []
+            for(let i = 0;i < 5 && i<res.data.length;i++)
+              tmp.push(res.data[i])
+            that.setData({
+              articleList:tmp
+            })
+          }
+        })//下面获取歌曲列表
+        wx.request({
+          url: 'https://www.clearn.site/wxapi/getListenList.php',
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          data: {
+            type: 'get',
+            id: 0,
+            num: 15
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data == null) {
+              console.log("没有了...")
+              return
+            }
+            else if (res.data == "获取失败")
+              return
+            that.setData({
+              listenList: res.data,
+            })//处理跳转页面歌曲状态
+            if (app.data.src != "")
+              for (let i = 0; i < that.data.listenList.length; i++)
+                if (that.data.listenList[i].src == app.data.src) {
+                  if(app.data.isPlay)
+                  that.setData({
+                    listenIndex: i,
+                    'bgAudioState.playState': 1
+                  })
+                  if (app.data.isPlay)
+                    that.play()
+                  return
+                }
+            }
         })
         console.log('用户名称: ', usercb)
         console.log('用户名称1: ', that.data.userinfo)
@@ -211,6 +269,9 @@ Component({
         }) 
         app.data.inter = setInterval(this.setTime, 1000, this)
         app.playMusic()
+        this.setData({
+          endTime: util.timeform(a.duration)
+        })
       } else {
         console.log('暂停')
         app.pauseMusic()
@@ -219,7 +280,7 @@ Component({
         })
         this.setData({
           endTime: util.timeform(a.duration)
-        }) 
+        })
         this.endTime(this)
         clearTimeout()
       }
@@ -227,6 +288,7 @@ Component({
 
     lastSong:function(e){
       console.log('切换到上一首')
+
       var app = getApp()
       var data = this.data.listenList
       if(this.data.listenIndex <= 0)
@@ -239,11 +301,12 @@ Component({
         this.play()
       this.setData({
         endTime: util.timeform(a.duration)
-      }) 
+      })
     },
 
     nextSong:function(e){
       console.log('切换到下一首')
+
       var data = this.data.listenList
       if (this.data.listenIndex >= (data.length - 1))
         return
