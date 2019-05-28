@@ -61,20 +61,12 @@ Component({
       id: 74,
       coverImgUrl: "https://www.cheery.pro/radio/goodgirl.png",
       title: "余生那么长，别总自己扛",
-      author: "哎？是我",
+      author: "哎？是我", 
       classify: 1,
       src: "https://www.cheery.pro/radio/goodgirl.mp3",
       rank: 0,
     }],
     articleList: [{
-      articleId: '1',
-      title: '这里有个戏精铲屎官，主子了解一下？',
-      image: 'https://image.weilanwl.com/img/4x3-3.jpg',
-      description: '这是一个伪铲屎官为了给自己的程序凑字数瞎几把乱写的一堆文字，了解一下就OK！ヾ(=･ω･=)o',
-      content: "",
-      views: "123",
-      author: "小海",
-      picUrl: "https://www.52hertalk.cn/public/upload/article/2019/05-05/bd0442b85c9130330a4972ffb3d60530.jpg",
       tags: [{
         short: "假装有猫",
         color: "red"
@@ -100,6 +92,8 @@ Component({
       var index = this.data.listenIndex
       if(app.data.src=="")
         app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
+      this.play()
+      this.play()
       var that = this
       t.getUserInfo(function (usercb) {
         that.setData({
@@ -171,7 +165,6 @@ Component({
       })
     },
     onReady: function (options) {
-      console.log("")
       var app = getApp()
       var length = app.getDuration()
       var m = parseInt(length / 60)
@@ -256,11 +249,11 @@ Component({
         this.setData({
           'bgAudioState.playState': 1
         })
+        this.setData({
+          endTime: util.timeform(a.duration)
+        }) 
         app.data.inter = setInterval(this.setTime, 1000, this)
         app.playMusic()
-        this.setData({
-          maxTime:app.getDuration()
-        })
         this.setData({
           endTime: util.timeform(a.duration)
         })
@@ -311,7 +304,7 @@ Component({
         this.play()
       this.setData({
         endTime: util.timeform(a.duration)
-      })
+      }) 
     },
     endTime(that) {
       var app = getApp()
@@ -320,6 +313,33 @@ Component({
     // 文章部分
     getData: function () {
       var that = this
+      //下面获取歌曲列表
+      wx.request({
+        url: 'https://www.clearn.site/wxapi/getListenList.php',
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        data: {
+          type: 'get',
+          id: 0,
+          num: 5
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data == null) {
+            console.log("没有了...")
+            return
+          }
+          else if (res.data == "获取失败") {
+            console.log("error")
+            return
+          }
+          that.setData({
+            listenList: res.data,
+          })
+        }
+      })
       wx.request({
         url: 'https://www.clearn.site/wxapi/getArticle.php',
         method: "POST",

@@ -5,6 +5,13 @@
     <view bindtap='back' class='btn'>返回</view>
     <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>{{title}}</text>
   </view>
+  
+</view>
+<view>
+<view class='load-progress {{loadProgress!=0?"show":"hide"}}' style='margin-top:0rpx;position: relative;'>
+  <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-loadProgress}}%, 0px, 0px);"></view>
+  <view class='load-progress-spinner text-green'></view>
+</view>
 </view>
 
 <!--引入towxml模版入口文件，并使用模版-->
@@ -17,3 +24,4 @@
 <view class="round-click" bindtap='changeTheme'>
   <image src='{{themepic[currentTheme]}}'></image>
 </view>
+

@@ -17,7 +17,7 @@
 <!--此处设置文章内容滑动，下拉至底部自动加载，加载由小程序自身完成-->
 <scroll-view scroll-y='true' scroll-x='false' bindscrolltolower='tolower' style='height:100%;'>
   <view class="cu-card listen">
-    <view wx:for="{{listenList}}" data-article-id='{{item.Id}}' wx:for-index='id' class="cu-item shadow">
+    <view wx:for="{{listenList}}" data-article-id='{{item.Id}}' wx:for-index='id' wx:key='' class="cu-item shadow">
       <view class="title">{{item.title}}</view>
       <view class="content">
         <image style='border-radius:50%;' src="{{item.coverImgUrl}}" mode="scaleToFill"></image>
