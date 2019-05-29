@@ -121,6 +121,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    wx.showLoading({
+      title: '正在加载留言',
+    })
     wx.request({
       url: 'https://www.clearn.site/wxapi/comment.php',
       method: "POST",
@@ -131,6 +134,7 @@ Page({
         type:'get'
       },
       success:function(res){
+        wx.hideLoading()
         console.log(res)
         that.setData({
           card:res.data
