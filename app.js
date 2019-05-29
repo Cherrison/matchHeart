@@ -63,7 +63,12 @@ App({
         that.globalData.code = e.code
       }
     })
-
+    wx.getStorage({
+      key: 'userIdentity',
+      success: function(res) {
+        that.globalData.userIdentity=res.data
+      }
+    })
     
     wx.getSystemInfo({
       success: e => {
@@ -106,6 +111,7 @@ App({
   globalData: {
     userInfo: null,
     code: null,
+    userIdentity:false,
     HeadUrl: "https://www.cheery.pro",
     bgAudio: wx.getBackgroundAudioManager(),
     bgAudioState: {

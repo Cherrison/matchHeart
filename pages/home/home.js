@@ -92,8 +92,6 @@ Component({
       var index = this.data.listenIndex
       if(app.data.src=="")
         app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
-      this.play()
-      this.play()
       var that = this
 //下面获取文章列表
         wx.request({
@@ -132,6 +130,8 @@ Component({
           },
           success: function (res) {
             console.log(res)
+            that.play()
+            that.play()
             if (res.data == null) {
               console.log("没有了...")
               return

@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/start/start",
     "pages/home/home",
     "pages/home/knowis/knowis",
@@ -18,6 +17,7 @@
     "pages/logs/logs",
     "pages/home/listen/listen",
     "pages/about/home/home",
+    "pages/about/identity/identity",
     "pages/about/about/about"
     
    

@@ -1,7 +1,8 @@
 const app = getApp();
 Component({
   data: {
-    usrinfo:null
+    usrinfo:null,
+    idstatus:null
   },
   methods: {
     onLoad(options) {
@@ -11,7 +12,8 @@ Component({
         mask: true,
       })
       this.setData({
-        usrinfo: app.globalData.userInfo
+        usrinfo: app.globalData.userInfo,
+        idstatus: app.globalData.userIdentity
       })
       wx.hideLoading()
     },
@@ -36,6 +38,11 @@ Component({
         modalName: null
       })
     },
+    toid:function(){
+      wx.navigateTo({
+        url: '/pages/about/identity/identity'
+      })
+    },
     tomyExpert(options){
       console.log("查看我的预约状态")
       wx.navigateTo({
@@ -50,6 +57,10 @@ Component({
         this.getTabBar()) {
         this.getTabBar().setData({
           selected: 2
+        })
+        this.setData({
+          usrinfo: app.globalData.userInfo,
+          idstatus: app.globalData.userIdentity
         })
       }
     }
