@@ -127,7 +127,7 @@
 <view>
   <form bindsubmit="bindFormSubmit">
     <view class="comment_display">
-      <textarea class="comment_textarea" placeholder="请输入你的评论^_^" name="comment_text" value="{{comment_textarea_value}}" maxlength='{{textMaxLength}}' focus='{{textarea_focus}}' />
+      <textarea class="shadow shadow-lg comment_textarea" placeholder="请输入你的评论^_^" name="comment_text" value="{{comment_textarea_value}}" maxlength='{{textMaxLength}}' focus='{{textarea_focus}}' />
       <!-- 发布 -->
       <view class=" {{show_aur_button?'hide':'show comment_submit_display'}}">
         <view class="comment_submit_tip">

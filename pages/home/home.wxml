@@ -22,7 +22,7 @@
   <!-- 菜单按钮 -->
 
   <view class="menu">
-    <navigator class="radius-xxl item navigator-hover" url="/pages/testPage/testPage">
+    <navigator class="radius-xxl item navigator-hover" url="/pages/home/assess/assess">
       <image class="item-ic" lazyLoad="true" src="/images/menu-ic-1.png"></image>
       <view class="item-name">心灵测评</view>
     </navigator>
@@ -36,7 +36,7 @@
     </navigator>
     <navigator class="radius-xxl item" url="/pages/home/heartbar/heartbar">
       <image class="item-ic" lazyLoad="true" src="/images/menu-ic-4.png"></image>
-      <view class="item-name">海底树洞</view>
+      <view class="item-name">心灵↑站</view>
     </navigator>
   </view>
 
@@ -77,23 +77,26 @@
 
 
   <view class="infobar">
-        <image class="fimage" src="https://s2.ax1x.com/2019/05/27/VZHsAI.png"></image>
-        <text class="ftext">最新资讯</text>
-        <view catchtap="getmore" class="moreLeft">
-          <image class="moreimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/left.png"></image>
-        </view>
+    <image class="fimage" src="https://s2.ax1x.com/2019/05/27/VZHsAI.png"></image>
+    <text class="ftext">最新资讯</text>
+    <view catchtap="getmore" class="moreLeft">
+      <image class="moreimage" src="http://resource.soulbuddy.cn/public/images/miniprogram/left.png"></image>
+    </view>
+
+      <scroll-view class="article-swiper" scroll-x>
+        <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail'>
+          <image lazyLoad="true" mode="aspectFill" src="{{item.imgurl}}"></image>
+          <view class="item-main ">
+            <view class="tit">{{item.title}}</view>
+            <view class="text">{{item.description}}</view>
+            <view class="item-box">
+              <view class="see">{{item.read}}</view>
+              <view class="name">{{item.author}}</view>
+            </view>
+          </view>
+        </navigator>
+      </scroll-view>
+
   </view>
-<scroll-view class="article-swiper" scroll-x >
-    <navigator class="item" url="/pages/article-detail/article-detail?articleId={{item.id}}" wx:for="{{articleList}}" wx:key="articleId" data-article-id='{{item.articleId}}' bindtap='toArticleDetail' >
-      <image lazyLoad="true" mode="aspectFill" src="{{item.imgurl}}"></image>
-      <view class="item-main ">
-        <view class="tit">{{item.title}}</view>
-        <view class="text">{{item.description}}</view>
-        <view class="item-box">
-          <view class="see">{{item.read}}</view>
-          <view class="name">{{item.author}}</view>
-        </view>
-      </view>
-    </navigator>
-</scroll-view>
+
 </scroll-view>

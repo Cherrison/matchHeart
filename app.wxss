@@ -7,7 +7,10 @@ page{
 .cu-modal.show {
   z-index: 99999;
 }
-
+.bg-deepblue{
+  background-image: linear-gradient(45deg, #00528b, #3f81ae);
+  color: #fff;
+}
 .nav-list {
   display: flex;
   flex-wrap: wrap;

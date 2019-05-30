@@ -12,8 +12,7 @@
   color: rgb(29, 43, 59);
 }
 scroll-view{
-  height: 128rpx;
-
+  height: 90rpx;
   width: 100%;
 }
 scroll-view .list{
@@ -25,9 +24,9 @@ scroll-view .list{
 scroll-view .listItem{
   text-align: center;
   width: 186rpx;
-  height: 128rpx;
+  height: 90rpx;
   background-color: #f1f2f6;
-  padding-top: 30rpx;
+  padding-top: 10rpx;
   box-sizing: border-box;
   /* float: left; */
   display: inline-block;

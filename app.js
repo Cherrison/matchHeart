@@ -116,13 +116,6 @@ App({
     userIdentity:false,
     HeadUrl: "https://www.cheery.pro",
     bgAudio: wx.getBackgroundAudioManager(),
-    bgAudioState: {
-      starttime: "00:00",
-      endtime: "00:00",
-      offset: 0,
-      max: 0,
-      playState: 0
-    },
     ColorList: [{
       title: '嫣红',
       name: 'red',

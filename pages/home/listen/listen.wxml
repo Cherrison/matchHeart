@@ -1,16 +1,9 @@
-<view class="cu-custom" style="height:150rpx;">
-  <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
-    <view bindtap='back' class='btn'>返回</view>
-    <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>小海心声</text>
-  </view>
-</view>
+<!-- 自定义头部navigationBar -->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">小海心声</view></cu-custom>
 
 <view class="cu-bar bg-white solid-bottom margin-top">
   <view class='action'>
     <text class='icon-titles text-orange '></text> 来听一下我的心声吧
-  </view>
-  <view class='action'>
-    <switch class='sm' checked='{{isCard}}' bindchange='isCard'></switch>
   </view>
 </view>
 

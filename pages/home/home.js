@@ -35,27 +35,6 @@ Component({
     StatusBar: t.globalData.StatusBar,
     CustomBar: t.globalData.CustomBar,
     cardCur: 0,
-    bgAudioState: {
-      starttime: "00: 00",
-      endtime: "03: 21",
-      offset: 42,
-      max: 100,
-      playState: 0
-    },
-    playing: {
-      starttime: "00: 00",
-      endtime: "03: 21",
-      offset: 42,
-      max: 100,
-      playState: 1
-    },
-    pause: {
-      starttime: "00: 00",
-      endtime: "03: 21",
-      offset: 42,
-      max: 100,
-      playState: 0
-    },
     listenIndex:0,
     listenList: [{
       id: 74,
@@ -63,8 +42,7 @@ Component({
       title: "余生那么长，别总自己扛",
       author: "哎？是我", 
       classify: 1,
-      src: "https://www.cheery.pro/radio/goodgirl.mp3",
-      rank: 0,
+      src: "https://www.cheery.pro/radio/goodgirl.mp3"
     }],
     articleList: [{
       tags: [{
@@ -90,8 +68,7 @@ Component({
       var app = getApp()
       var data = this.data.listenList
       var index = this.data.listenIndex
-      if(app.data.src=="")
-        app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
+      app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
       var that = this
 //下面获取文章列表
         wx.request({
@@ -130,8 +107,7 @@ Component({
           },
           success: function (res) {
             console.log(res)
-            that.play()
-            that.play()
+           
             if (res.data == null) {
               console.log("没有了...")
               return
@@ -168,6 +144,7 @@ Component({
       var current = app.getCurrentTime()
       current = parseInt(current)
       var s = util.timeform(current)
+      
       this.setData({
         sliderBar: app.getCurrentTime(),
         startTime: s
@@ -181,47 +158,12 @@ Component({
         cardCur: e.detail.current
       })
     },
-    // 头部便签部分
-    toNoteDetail: function (e) {
-      console.log('跳转到详情界面!')
-      // wx.navigateTo({
-      //   url: '',
-      // })
-
-    },
-    clickLike: function (e) {
-      var noteChange = this.data.stickyNote
-      switch (noteChange.like_status) {
-        case 0: {
-          noteChange.like_status = 1;
-          noteChange.like_num += 1
-          break;
-        }
-        case 1: {
-          noteChange.like_status = 0;
-          noteChange.like_num -= 1
-          break;
-        }
-      }
-      this.setData({
-        stickyNote: noteChange
-      })
-      if (noteChange.like_status) console.log('点了个赞')
-      else console.log('取消了点赞')
-    },
-    loadStickyNote:function(e){
-        console.log('已切换便签!')
-    },
 
     // 播放器部分
     sliderChange: function (e) {
-      console.log("sliderChange")
-      var playing;
       app.setTime(e.detail.value)
       setInterval(this.setTime, 1000, this)
-      playing = util.totime(e.detail.value, this.data.bgAudioState.endtime);
-      
-      console.log('切换到 '+ playing +' 处');
+      console.log('切换到 ' + util.timeform(e.detail.value) +' 处');
     },
     setTime: function (that) {
       var current = app.getCurrentTime()
@@ -256,7 +198,8 @@ Component({
           'bgAudioState.playState': 0
         })
         this.setData({
-          endTime: util.timeform(a.duration)
+          endTime: util.timeform(a.duration),
+          startTime: util.timeform(app.getCurrentTime())
         })
         this.endTime(this)
         clearTimeout()

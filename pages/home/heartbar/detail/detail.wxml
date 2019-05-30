@@ -1,8 +1,10 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="backText">返回</view>
-  <view slot="content">留言板</view>
-</cu-custom>
-<view class='cu-card' style='padding:35rpx;font-size:35rpx;'>{{content}}</view>
+<!-- 自定义头部navigationBar -->
+
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">心灵加油站</view></cu-custom>
+
+<view class='cu-card text-bold' style='padding:35rpx;font-size:35rpx;'>
+  <text space='nbsp'>      {{content}}</text>
+</view>
 <view class="WxComment">
-  <WxComment tipOne="WxComment " tipTwo="Powered by https://github.com/yicm" submitBtnText="回复" articleID="{{articleId}}" contentLen='1' theme="light"></WxComment>
+  <WxComment tipOne="心海" tipTwo="在这里留言你的正能量,加油ヾ(◍°∇°◍)ﾉﾞ" submitBtnText="回复" articleID="{{articleId}}" contentLen='1' theme="light"></WxComment>
 </view>

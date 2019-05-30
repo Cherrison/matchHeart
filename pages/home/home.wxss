@@ -257,10 +257,10 @@
 
 
 .article-swiper {
+    margin-top:40rpx;
     height: 250rpx;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    
 }
 
 .article-swiper .item {
@@ -351,6 +351,7 @@
 	border-top-left-radius: 20rpx; 
 	border-top-right-radius: 20rpx; 
 	padding-top: 10rpx; 
+  height: 37vh;
 }
 .fimage{ 
 	width: 44rpx; 

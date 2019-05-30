@@ -1,23 +1,25 @@
-.btn{
-  height: 3vh;
-  width: 12vw;
-  background-color: #db8bbb;
-  opacity: 0.80;
-  border-radius: 20rpx;
-  margin-top: 45rpx;
-  position: fixed;
-  font-size: 35rpx;
-  font-weight: bolder;
-  color: rgb(29, 43, 59);
+scroll-view{
+  height:100vh;
+  width:100vw;
 }
 .container{
   height: 90vh;
   width: 100vw;
 }
-
+.center{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.result{
+  width: 85%;
+  border: 2px rgb(117, 117, 207)  solid;
+  border-radius: 20rpx;
+}
 .containere {
   position: absolute;
-  top: 20rpx;
+  top: 150rpx;
   bottom: 0rpx;
   left: 0;
   right: 0;

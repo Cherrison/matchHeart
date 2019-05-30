@@ -3,15 +3,15 @@
 const app = getApp();
 Page({
   data: {
-    name:"",
+    name: "",
     //article将用来存储towxml数据
     article: {},
-    title:"咨询师详情",
+    title: "咨询师详情",
     guaranteeH: "http://resource.soulbuddy.cn/public/images/miniprogram/check-circle.png",
-    dataList:[],
-    info:""
+    dataList: [],
+    info: ""
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     const _ts = this;
     this.data.name = options.name
     console.log(options)
@@ -32,23 +32,23 @@ Page({
         }
       },
     })
-    
+
     //请求markdown文件，并转换为内容
     wx.request({
-      url: 'https://www.cheery.pro/teacher/'+ options.id +'.md',
+      url: 'https://www.cheery.pro/teacher/' + options.id + '.md',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: (res) => {
         //将markdown内容转换为towxml数据
         let data = app.towxml.toJson(
-          res.data,               // `markdown`或`html`文本内容
-          'markdown'              // `markdown`或`html`
+          res.data, // `markdown`或`html`文本内容
+          'markdown' // `markdown`或`html`
         );
         //前台初始化小程序数据（2.1.2新增，如果小程序中无相对资源需要添加`base`根地址，也无`audio`内容可无需初始化）
         data = app.towxml.initData(data, {
-          base: 'https://xxx.com/',    // 需要解析的内容中相对路径的资源`base`地址
-          app: _ts                     // 传入小程序页面的`this`对象，以用于音频播放器初始化
+          base: 'https://xxx.com/', // 需要解析的内容中相对路径的资源`base`地址
+          app: _ts // 传入小程序页面的`this`对象，以用于音频播放器初始化
         });
 
         //设置文档显示主题，默认'light'
@@ -64,11 +64,19 @@ Page({
   back() {
     wx.navigateBack()
   },
-  gotoOrder(){
+  gotoOrder() {
     var that = this
-    wx.navigateTo({
-      url: '/pages/order/order?teacher=' + that.data.name,
-    })
+    if (app.globalData.userIdentity == true) {
+      wx.navigateTo({
+        url: '/pages/order/order?teacher=' + that.data.name,
+      })
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '请先在我的页面完成身份认证!',
+        showCancel: false
+      })
+    }
   }
 })
 

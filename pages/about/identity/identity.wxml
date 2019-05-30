@@ -19,23 +19,3 @@
     </view>
   </form>
 </view>
-
-
-
-<!-- <form bindsubmit='checkSubmit'>
-  <view class="cu-form-group">
-    <view class="title">账号:</view>
-    <view class='inputborder'>
-      <input name='username' type='number' placeholder="请输入账号"></input>
-    </view>
-  </view>
-
-  <view class="cu-form-group">
-    <view class="title">密码:</view>
-    <input name='password' type='password' placeholder="请输入密码"></input>
-  </view>
-
-  <view style='height:100vh; display:flex; align-items:center; justify-content:center;'>
-    <button class='round grid cu-btn lg bg-green' form-type='submit'>请求</button>
-  </view>
-</form> -->

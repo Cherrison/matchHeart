@@ -1,11 +1,6 @@
 <!-- 自定义头部navigationBar -->
 
-<view class="cu-custom" style="height:150rpx;">
-  <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
-    <view bindtap='back' class='btn'>返回</view>
-    <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>请完善信息</text>
-  </view>
-</view>
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">请完善信息</view></cu-custom>
 
 <view class="cu-bar bg-white">
   <view class="action">

@@ -2,7 +2,7 @@
   <!-- 自定义头部navigationBar -->
 
     <view class="cu-custom" style="height:150rpx;">
-      <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
+      <view class="cu-bar fixed bg-deepblue" style="height:150rpx;padding-top:10px;">
         <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>咨询页面</text>
       </view>
     </view>

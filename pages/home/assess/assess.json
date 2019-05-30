@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "cu-custom": "/components/cu-custom",
     "ec-canvas": "../../../ec-canvas/ec-canvas"
   }
 }

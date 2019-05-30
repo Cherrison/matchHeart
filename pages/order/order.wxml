@@ -1,12 +1,9 @@
-<!--pages/orderTime/index.wxml-->
 <!-- 自定义头部navigationBar -->
 
-<view class="cu-custom" style="height:150rpx;">
-  <view class="cu-bar fixed bg-gradual-pink" style="height:150rpx;padding-top:10px;">
-    <view bindtap='back' class='btn'>返回</view>
-    <text style='font-weight:bolder;margin-left:300rpx;margin-top:50rpx;'>预约</text>
-  </view>
-</view>
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">选择预约时间</view>
+</cu-custom>
 
 <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
   <view class="cu-dialog">
@@ -41,7 +38,7 @@
   </scroll-view>
 
   <view class="grid col-5 padding-sm">
-    <view class="padding-sm" wx:for="{{timeArr}}" data-time="{{item.time}}"wx:for-index="timeIndex"data-Tindex="{{ timeIndex }}" wx:key=""bindtap='selectTime' style='padding:10rpx;padding-bottom:15rpx;'>
+    <view class="padding-sm" wx:for="{{timeArr}}" data-time="{{item.time}}" wx:for-index="timeIndex" data-Tindex="{{ timeIndex }}" wx:key="" bindtap='selectTime' style='padding:10rpx;padding-bottom:15rpx;'>
       <view class="{{ currentTime==timeIndex? 'selected' :'' }} bg-{{item.status==can?'yellow':'grey'}} padding radius text-center shadow-blur">
         <view class="text-lg">{{ item.status}}</view>
         <view class="margin-top-sm text-Abc">{{item.time}}</view>
@@ -49,8 +46,8 @@
     </view>
   </view>
 
-  <view style='display:flex;margin-top:100rpx; justify-content:center;'class="action">
-    <button style='width:200rpx;'class="cu-btn lg bg-green shadow" bindtap="showModal" data-target="DialogModal1">预约</button>
+  <view style='display:flex; align-content:center; justify-content:center;' class="action">
+    <button style='width:200rpx;' class="cu-btn lg bg-green shadow" bindtap="showModal" data-target="DialogModal1">预约</button>
   </view>
 
 </view>

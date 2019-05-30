@@ -28,9 +28,6 @@ Page({
         id:options.articleId
       },
       success:function(res){
-        _ts.setData({
-          loadProgress: 100
-        })
         console.log(res)
         let data = app.towxml.toJson(
           res.data[0].content,               // `markdown`或`html`文本内容

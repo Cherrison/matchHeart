@@ -37,6 +37,11 @@ Page({
         that.setData({
           [str]:tmp
         })
+      },
+      fail:function(){
+        wx.showToast({
+          title: '没有了...',
+        })
       }
     })
   },
@@ -91,6 +96,9 @@ Page({
 
   getData: function () {
     var that = this
+    wx.showLoading({
+      title: '正在载入...'
+    })
     wx.request({
       url: 'https://www.clearn.site/wxapi/getListenList.php',
       method: "POST",
@@ -107,6 +115,7 @@ Page({
         //此处处理数据中的tags，将其转换为json
         console.log(res)
         if (res.data == null) {
+          
           console.log("没有了...")
           return
         }
@@ -129,7 +138,7 @@ Page({
           listenList: that.data.listenList,
           showcnt: cnt
         })
-
+        wx.hideLoading()
         console.log(app.data.src)
         if (app.data.src == "")
           return
@@ -152,10 +161,13 @@ Page({
         }
       }
     })
+    
   },
   
   onLoad: function (options) {
+    
     this.getData()
+   
   },
 
   back() {

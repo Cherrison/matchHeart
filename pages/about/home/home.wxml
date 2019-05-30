@@ -1,34 +1,17 @@
 <view class='UCenter-bg'>
   <image src='{{usrinfo.avatarUrl}}' class='round png' mode='widthFix'></image>
   <view class='text-xl'>{{usrinfo.nickName}}
-    <text class='text-df'>v1</text>
   </view>
   <view class='margin-top-sm'>
-    <text>By:Cherrison</text>
+    <text class='text-bold;'>By:Psyche</text>
   </view>
   <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image>
 </view>
 <button bindtap='toid'>{{idstatus==true?"身份已认证":"身份未认证"}}</button>
-<!-- <view class='padding flex text-center text-grey bg-white shadow-warp'>
-  <view class='flex flex-sub flex-direction solid-right'>
-    <view class="text-xxl text-orange">1.2w</view>
-    <view class="margin-top-sm">
-      <text class='icon-attentionfill'></text> 总浏览量</view>
-  </view>
-  <view class='flex flex-sub flex-direction solid-right'>
-    <view class="text-xxl text-blue">656</view>
-    <view class="margin-top-sm">
-      <text class='icon-favorfill'></text> 使用人数</view>
-  </view>
-  <view class='flex flex-sub flex-direction'>
-    <view class="text-xxl text-green">5.6k</view>
-    <view class="margin-top-sm">
-      <text class='icon-fork'></text> 好评</view>
-  </view>
-</view> -->
+
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
   <view class="cu-item arrow">
-    <view class='content' bindtap='CopyLink' data-link='https://github.com/Cherrison/oucHeart'>
+    <view class='content' bindtap='CopyLink' data-link='https://github.com'>
       <text class='icon-github text-grey'></text>
       <text class='text-grey'>GitHub</text>
     </view>
@@ -36,7 +19,7 @@
   <view class="cu-item arrow">
     <navigator class='content' url='../about/about' hover-class='none'>
       <image src='/images/logo.png' class='png' mode='aspectFit'></image>
-      <text class='text-grey'>关于小海心灵</text>
+      <text class='text-grey'>关于心海</text>
     </navigator>
   </view>
   <view class="cu-item arrow">
@@ -56,12 +39,6 @@
       <text class='icon-writefill text-cyan'></text>
       <text class='text-grey'>意见反馈</text>
     </button>
-  </view>
-  <view class="cu-item arrow">
-    <navigator class='content' url='../test/list' hover-class='none'>
-      <text class='icon-creativefill text-orange'></text>
-      <text class='text-grey'>Bug反馈</text>
-    </navigator>
   </view>
 </view>
 

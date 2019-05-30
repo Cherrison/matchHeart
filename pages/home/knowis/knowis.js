@@ -16,6 +16,9 @@ tolower:function(e){
 
 getData:function(){
   var that = this
+  wx.showLoading({
+    title: '正在载入...'
+  })
   wx.request({
     url: 'https://www.clearn.site/wxapi/getArticle.php',
     method:"POST",
@@ -43,6 +46,7 @@ getData:function(){
         articleList: that.data.articleList,
         showcnt: cnt
       })
+      wx.hideLoading()
     }
   })
 },

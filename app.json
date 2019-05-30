@@ -1,14 +1,15 @@
 {
   "pages": [
     "pages/start/start",
+    "pages/home/assess/assess",
+    
     "pages/home/home",
     "pages/home/knowis/knowis",
     "pages/about/status/status",
     "pages/order/order",
     "pages/order/form",
-    "pages/testPage/testDetail/testDetail",
     "pages/article-detail/article-detail",
-    "pages/home/assess/assess",
+    
     "pages/home/assess/result/result",
     "pages/expert/expert",
     "pages/expert-detail/expert-detail",
