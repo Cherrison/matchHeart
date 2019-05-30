@@ -167,7 +167,7 @@ Component({
       var current = app.getCurrentTime()
       current = parseInt(current)
       var s = util.timeform(current)
-      that.setData({
+      this.setData({
         sliderBar: app.getCurrentTime(),
         startTime: s
       })
