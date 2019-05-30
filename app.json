@@ -1,10 +1,8 @@
 {
   "pages": [
-    "pages/about/login/login",
-    "pages/home/heartbar/heartbar",
+    "pages/start/start",
     "pages/home/home",
     "pages/home/knowis/knowis",
-    "pages/start/start",
     "pages/about/status/status",
     "pages/order/order",
     "pages/order/form",
@@ -18,7 +16,10 @@
     "pages/logs/logs",
     "pages/home/listen/listen",
     "pages/about/home/home",
-    "pages/home/heartbar/detail/detail"
+    "pages/about/identity/identity",
+    "pages/about/about/about"
+    
+   
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

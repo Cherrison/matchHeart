@@ -1,13 +1,14 @@
 <view class='UCenter-bg'>
-  <image src='/images/logo.png' class='png' mode='widthFix'></image>
-  <view class='text-xl'>小海心灵
-    <text class='text-df'>v2.0</text>
+  <image src='{{usrinfo.avatarUrl}}' class='round png' mode='widthFix'></image>
+  <view class='text-xl'>{{usrinfo.nickName}}
+    <text class='text-df'>v1</text>
   </view>
   <view class='margin-top-sm'>
     <text>By:Cherrison</text>
   </view>
   <image src='https://image.weilanwl.com/gif/wave.gif' mode='scaleToFill' class='gif-wave'></image>
 </view>
+<button bindtap='toid'>{{idstatus==true?"身份已认证":"身份未认证"}}</button>
 <!-- <view class='padding flex text-center text-grey bg-white shadow-warp'>
   <view class='flex flex-sub flex-direction solid-right'>
     <view class="text-xxl text-orange">1.2w</view>

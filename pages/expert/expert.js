@@ -9,32 +9,37 @@ Component({
     condition:'all',
     category:[
       'all',
-      '抑郁',
-      '自卑',
-      '情感'
+      '情绪调节',
+      '亲密关系',
+      '学业压力',
+      '心理创伤',
+      '人际关系',
+      '生涯规划'
     ],
     datalist: [{
       name: "牟宏玮",
       tid: 19001,
       occu_info: {
-        entryTime: 2,
+        entryTime: "10+",
         option: "国家二级心理咨询师"
       },
       service_type: "面询/远程",
-      tags: "个人成长，抑郁，情感困惑，人生意义探索",
-      pic_url: "https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=3761627809,1796684792&fm=85&s=E8F235C542D311D8443815A003007012",
-      category:'抑郁'
+      tags: "压力管理、情绪调节、潜能开发",
+      heartmsg:"不念过往，不畏将来，享受当下",
+      pic_url: "https://www.cheery.pro/teacher/19001.png",
+      category:'情绪调节'
     }, {
       name: "迟昊阳",
       tid: 19002,
       occu_info: {
-        entryTime: 2,
+        entryTime: 9,
         option: "国家一级心理咨询师"
       },
       service_type: "面询/远程",
       tags: "真诚、包容、启发",
-        pic_url: "https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=409133432,2699647270&fm=202&mola=new&crop=v1",
-      category: '自卑'
+      heartmsg: "长大，成为你自己",
+      pic_url: "https://www.cheery.pro/teacher/19002.png",
+      category: '亲密关系'
       }, {
         name: "宋秀",
         tid: 19003,
@@ -44,8 +49,57 @@ Component({
         },
         service_type: "面询/远程",
         tags: "包容、启发、引导、陪伴",
-        pic_url:"https://t12.baidu.com/it/u=2690865287,281971506&fm=76",
-        category: '情感'
+        heartmsg: "愿我的专业与真诚，可以是你的冬日暖阳",
+        pic_url:"https://www.cheery.pro/teacher/19003.png",
+        category: '人际关系'
+      }, {
+        name: "张迪",
+        tid: 19004,
+        occu_info: {
+          entryTime: 10,
+          option: "国家二级心理咨询师"
+        },
+        service_type: "面询/远程",
+        tags: "包容、启发、情感",
+        heartmsg: "不管此刻多么黑暗，爱和希望总在前方",
+        pic_url: "https://www.cheery.pro/teacher/19004.png",
+        category: '心理创伤'
+      }, {
+        name: "吴连海",
+        tid: 19005,
+        occu_info: {
+          entryTime: "10+",
+          option: "国家二级心理咨询师"
+        },
+        service_type: "面询/远程",
+        tags: "包容、启发、引导、陪伴",
+        heartmsg: "问题不是问题，如何对待问题才是问题！",
+        pic_url: "https://www.cheery.pro/teacher/19005.png",
+        category: '生涯规划'
+      }, {
+        name: "甄珍",
+        tid: 19006,
+        occu_info: {
+          entryTime: "9",
+          option: "国家二级心理咨询师"
+        },
+        service_type: "面询/远程",
+        tags: "包容、启发、引导、陪伴",
+        heartmsg: "苦难或困扰让我们对自己有更多的觉察，促进我们探索内在价值",
+        pic_url: "https://www.cheery.pro/teacher/19006.png",
+        category: '人际关系'
+      }, {
+        name: "崔帅",
+        tid: 19007,
+        occu_info: {
+          entryTime: 7,
+          option: "国家二级心理咨询师"
+        },
+        service_type: "面询/远程",
+        tags: "包容、启发、引导、陪伴",
+        heartmsg: "宁静,勇气,智慧",
+        pic_url: "https://www.cheery.pro/teacher/19007.png",
+        category: '学业压力'
       }
     ],
     scrollLeft: 0
@@ -66,6 +120,11 @@ Component({
   
   pageLifetimes: {
     show() {
+      var that=this;
+      wx.setStorage({
+        key: 'dataList',
+        data: that.data.datalist
+      })
       if (typeof this.getTabBar === 'function' && this.getTabBar()) {
         this.getTabBar().setData({
           selected: 1

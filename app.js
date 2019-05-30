@@ -47,7 +47,7 @@ App({
     } else {
       wx.getUserInfo({
         success: function (res) {
-          console.log('用户信息', res.userInfo)
+          console.log('appjs用户信息', res.userInfo)
           that.globalData.userInfo = res.userInfo
           typeof cb == "function" && cb(that.globalData.userInfo)
         }
@@ -63,7 +63,12 @@ App({
         that.globalData.code = e.code
       }
     })
-
+    wx.getStorage({
+      key: 'userIdentity',
+      success: function(res) {
+        that.globalData.userIdentity=res.data
+      }
+    })
     
     wx.getSystemInfo({
       success: e => {
@@ -72,7 +77,7 @@ App({
         let custom = wx.getMenuButtonBoundingClientRect();
         console.log(custom)
         this.globalData.Custom = custom;
-        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight*0.4;
         console.log(this.globalData.CustomBar);
       }
     })
@@ -106,6 +111,7 @@ App({
   globalData: {
     userInfo: null,
     code: null,
+    userIdentity:false,
     HeadUrl: "https://www.cheery.pro",
     bgAudio: wx.getBackgroundAudioManager(),
     bgAudioState: {

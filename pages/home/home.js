@@ -93,12 +93,7 @@ Component({
       if(app.data.src=="")
         app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
       var that = this
-      t.getUserInfo(function (usercb) {
-        that.setData({
-          userinfo: usercb,
-          nickName: usercb.nickName,
-          imageurl: usercb.avatarUrl
-        })//下面获取文章列表
+//下面获取文章列表
         wx.request({
           url: 'https://www.clearn.site/wxapi/getArticle.php',
           method:"POST",
@@ -135,6 +130,8 @@ Component({
           },
           success: function (res) {
             console.log(res)
+            that.play()
+            that.play()
             if (res.data == null) {
               console.log("没有了...")
               return
@@ -158,9 +155,6 @@ Component({
                 }
             }
         })
-        console.log('用户名称: ', usercb)
-        console.log('用户名称1: ', that.data.userinfo)
-      })
     },
     onReady: function (options) {
       var app = getApp()
@@ -225,13 +219,6 @@ Component({
       app.setTime(e.detail.value)
       setInterval(this.setTime, 1000, this)
       playing = util.totime(e.detail.value, this.data.bgAudioState.endtime);
-      var playChange = this.data.bgAudioState;
-      playChange.starttime=playing;
-      playChange.offset = e.detail.value;
-
-      this.setData({
-        bgAudioState: playChange
-      })
       
       console.log('切换到 '+ playing +' 处');
     },
