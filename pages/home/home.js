@@ -162,7 +162,8 @@ Component({
       var m = parseInt(length / 60)
       var s = parseInt(length % 60)
       this.setData({
-        endTime: m + ":" + s
+        endTime: m + ":" + s,
+        maxTime: app.getDuration()
       })
       app.pauseMusic()
     },
