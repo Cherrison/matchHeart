@@ -137,12 +137,16 @@ Page({
         for (let i = 0; i < that.data.listenList.length; i++) {
           console.log(that.data.listenList[i].src, app.data.src)
           if (that.data.listenList[i].src == app.data.src) {
-            console.log(i)
+            var isplay = app.data.isPlay
+            var img = '/images/play-btn-stop.png'
+            if(!isplay)
+              img = '/images/play-btn-start.png'
             var str1 = 'listenList[' + i + '].play'
             var str2 = 'listenList[' + i + '].isPlay'
             that.setData({
-              [str1]: '/images/play-btn-stop.png',
-              [str2]: true
+              currentPlayId:i,
+              [str1]: img,
+              [str2]: isplay
             })
           }
         }

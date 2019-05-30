@@ -1,10 +1,13 @@
 // pages/home/heartbar/heartbar.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    content:"",
+    articleId: 3,
     stickyNote: {
       friend_id: 55,
       user_id: 12,
@@ -23,42 +26,70 @@ Page({
       like_status: 1,
       commemt_num: 212,
       comment_id:"051001"
-    },
-      {
-        card_id: 1,
-        bg: "gradual-green",
-        name: "努力加油!!!",
-        short: "\n别问我为什么这么努力，我只是为了以后我夹菜，没人敢转桌子 !",
-        bg_img: "https://www.52hertalk.cn/public/upload/friendBg/2018/12-11/62b2933ea6013dd694a5a7404670708c.jpg",
-        like_num: 45,
-        like_status: 1,
-        commemt_num:325,
-        comment_id: "051002"
-      },
-      {
-        card_id: 2,
-        bg: "gradual-pink",
-        name: "不忘初心",
-        short: "\n认定了的路，再痛也不要皱一下眉头，你要知道，再怎么难走都是你自己选的，你没有资格喊疼 !",
-        bg_img: "https://www.52hertalk.cn/public/upload/friendBg/2018/12-11/62b2933ea6013dd694a5a7404670708c.jpg",
-        like_num: 125,
-        like_status: 1,
-        commemt_num: 125,
-        comment_id: "051003"
-      }
-    ],
+    }],
   },
   toNoteDetail:function(e){
     console.log('跳转到卡片详情界面!')
-    // wx.navigateTo({
-    //   url: '',
-    // })
+    console.log(e)
+    var that = this
+    wx.request({
+      url: 'https://www.clearn.site/wxapi/comment.php',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        type: 'update',
+        id: e.currentTarget.dataset.id
+      },
+      success:function(res){
+        console.log(res)
+      }
+    })
+    wx.navigateTo({
+      url: './detail/detail?articleId=' + e.currentTarget.dataset.id + '&content=' + e.currentTarget.dataset.content,
+    })
 
   },
 
   loadStickyNote: function (e) {
     console.log('已切换便签!')
   },
+
+  input:function(e){
+    this.setData({
+      content:e.detail.value
+    })
+  },
+
+  submit:function(e){
+    var that = this
+    wx.request({
+      url: 'https://www.clearn.site/wxapi/comment.php',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        type:'add',
+        content:that.data.content,
+        id:app.data.id
+      },
+      success:function(res){
+        console.log(res)
+        if(res.data != "success")
+          return
+        that.setData({
+          content:""
+        })
+        if (getCurrentPages().length != 0) {
+          //刷新当前页面的数据
+          getCurrentPages()[getCurrentPages().length - 1].onLoad()
+        }
+      }
+    })
+  },
+
   clickLike: function (e) {
     console.log(e)
     var cid = e.currentTarget.dataset.cardId
@@ -89,7 +120,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.showLoading({
+      title: '正在加载留言',
+    })
+    wx.request({
+      url: 'https://www.clearn.site/wxapi/comment.php',
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        type:'get'
+      },
+      success:function(res){
+        wx.hideLoading()
+        console.log(res)
+        that.setData({
+          card:res.data
+        })
+      }
+    })
   },
 
   /**

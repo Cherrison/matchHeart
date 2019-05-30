@@ -12,17 +12,17 @@
 
   <block class='grid padding-sm '>
 
-    <view  class='padding-sm' bindtap='toNoteDetail' wx:for='{{card}}' wx:key="idc">
+    <view  class='padding-sm' data-id='{{item.id}}' bindtap='toNoteDetail' data-content='{{item.content}}' wx:for='{{card}}' wx:key="idc">
 
-      <view style='height:370rpx;' class='bg-{{item.bg}} padding radius-lg text-center shadow-blur'>
+      <view style='height:370rpx;' class='bg-gradual-blue padding radius-lg text-center shadow-blur'>
         <view style='height:266rpx;'>
-          <view class="text-lg">{{item.name}}</view>
-          <view class='margin-top-lg text-Abc'>{{item.short}}</view>
+          <!--<view class="text-lg">{{item.name}}</view>-->
+          <view class='margin-top-lg text-Abc'>{{item.content}}</view>
         </view>
 
-        <view style='height:104rpx;' class="card-bottom">
+        <view style='height:104rpx;' style='color:yellow;'>
 
-          <view catchtap="clickLike" data-card-id='{{item.card_id}}' class="li">
+          <!--<view catchtap="clickLike" data-card-id='{{item.card_id}}' class="li">
             <view class="praise {{item.like_status==1?'active':''}}">
               <text class='icon-appreciate text-xxl '></text> {{item.like_num}}
             </view>
@@ -36,7 +36,7 @@
             <view>
               <text class='icon-refresh text-xxl '></text> 换一换
             </view>
-          </view>
+          </view>-->
 
         </view>
 
@@ -47,5 +47,10 @@
   </block>
 
 </scroll-view>
+
+<view class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
+<input style='' type='text' placeholder='留下你的心情...' text-intent='0' value='{{content}}' bindblur='input'></input>
+<button class='cu-btn' style='width:15vw;' bindtap='submit'>留言</button>
+</view>
 
 </view>
