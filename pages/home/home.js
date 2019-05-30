@@ -391,7 +391,6 @@ Component({
           break
         }
       }
-      this.play()
     },
   }
 })
