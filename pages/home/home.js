@@ -228,13 +228,6 @@ Component({
       app.setTime(e.detail.value)
       setInterval(this.setTime, 1000, this)
       playing = util.totime(e.detail.value, this.data.bgAudioState.endtime);
-      var playChange = this.data.bgAudioState;
-      playChange.starttime=playing;
-      playChange.offset = e.detail.value;
-
-      this.setData({
-        bgAudioState: playChange
-      })
       
       console.log('切换到 '+ playing +' 处');
     },
