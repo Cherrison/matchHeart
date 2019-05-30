@@ -26,7 +26,7 @@ Component({
     inter: "",
     startTime: "0:00",
     endTime: "0",
-    sliderBar: 0,
+    sliderBar: 20,
 
     userinfo: "",
     nickName: '',
@@ -224,7 +224,8 @@ Component({
       var s = util.timeform(current)
       that.setData({
         sliderBar: app.getCurrentTime(),
-        startTime: s
+        startTime: s,
+        maxTime: a.duration
       })
     },
     play: function (t) {
@@ -374,6 +375,7 @@ Component({
         return
       for (let i = 0; i < this.data.listenList.length; i++){
         if (this.data.listenList[i].src == app.data.src) {
+          console.log(app.data.isPlay)
           if(app.data.isPlay)
             this.setData({
             listenIndex: i,
