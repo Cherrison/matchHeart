@@ -165,7 +165,13 @@ Component({
         endTime: m + ":" + s,
         maxTime: app.getDuration()
       })
-      app.pauseMusic()
+      var current = app.getCurrentTime()
+      current = parseInt(current)
+      var s = util.timeform(current)
+      this.setData({
+        sliderBar: app.getCurrentTime(),
+        startTime: s
+      })
     },
   
     // 轮播图
@@ -218,7 +224,6 @@ Component({
       console.log('切换到 '+ playing +' 处');
     },
     setTime: function (that) {
-      var app = getApp()
       var current = app.getCurrentTime()
       current = parseInt(current)
       var s = util.timeform(current)

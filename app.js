@@ -13,15 +13,16 @@ App({
   },
   towxml: new Towxml(),                    //创建towxml对象，供小程序页面使用
   setMusic: function (title, coverImgUrl, singer, epname, src) {
+    this.data.isPlay = true;
     bgManager.title = title
     bgManager.coverImgUrl = coverImgUrl
     bgManager.singer = singer
     bgManager.src = src
     bgManager.epname = epname
     this.data.src = src
-    this.data.isPlay = false
   },
   playMusic: function (e) {
+    console.log("app play")
     bgManager.play()
     this.data.isPlay = true
   },
@@ -36,6 +37,7 @@ App({
     return bgManager.currentTime
   },
   pauseMusic: function (e) {
+    console.log("app pause")
     bgManager.pause()
     this.data.isPlay = false
   },

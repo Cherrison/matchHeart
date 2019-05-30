@@ -22,7 +22,7 @@
 
         <view style='height:104rpx;' style='color:yellow;'>
 
-          <!--<view catchtap="clickLike" data-card-id='{{item.card_id}}' class="li">
+          <view catchtap="clickLike" data-card-id='{{item.card_id}}' class="li">
             <view class="praise {{item.like_status==1?'active':''}}">
               <text class='icon-appreciate text-xxl '></text> {{item.like_num}}
             </view>
@@ -36,7 +36,7 @@
             <view>
               <text class='icon-refresh text-xxl '></text> 换一换
             </view>
-          </view>-->
+          </view>
 
         </view>
 
@@ -48,9 +48,9 @@
 
 </scroll-view>
 
-<view class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
+<!--<view class='cu-bar input foot' style='position:fixed;bottom:0;width:100vw;'>
 <input style='' type='text' placeholder='留下你的心情...' text-intent='0' value='{{content}}' bindblur='input'></input>
 <button class='cu-btn' style='width:15vw;' bindtap='submit'>留言</button>
-</view>
+</view>-->
 
 </view>
