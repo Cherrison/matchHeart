@@ -92,8 +92,6 @@ Component({
       var index = this.data.listenIndex
       if(app.data.src=="")
         app.setMusic(data[index].title, data[index].coverImgUrl, data[index].author, data[index].title, data[index].src)
-      this.play()
-      this.play()
       var that = this
       t.getUserInfo(function (usercb) {
         that.setData({
@@ -172,7 +170,13 @@ Component({
       this.setData({
         endTime: m + ":" + s
       })
-      app.pauseMusic()
+      var current = app.getCurrentTime()
+      current = parseInt(current)
+      var s = util.timeform(current)
+      that.setData({
+        sliderBar: app.getCurrentTime(),
+        startTime: s
+      })
     },
   
     // 轮播图
@@ -232,7 +236,6 @@ Component({
       console.log('切换到 '+ playing +' 处');
     },
     setTime: function (that) {
-      var app = getApp()
       var current = app.getCurrentTime()
       current = parseInt(current)
       var s = util.timeform(current)
@@ -401,6 +404,7 @@ Component({
           break
         }
       }
+      this.play()
     },
   }
 })
