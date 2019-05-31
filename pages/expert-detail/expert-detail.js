@@ -3,6 +3,7 @@
 const app = getApp();
 Page({
   data: {
+    teacherid:"",
     name: "",
     //article将用来存储towxml数据
     article: {},
@@ -12,6 +13,7 @@ Page({
     info: ""
   },
   onLoad: function(options) {
+    console.log(options.teacherid)
     const _ts = this;
     this.data.name = options.name
     console.log(options)
@@ -19,7 +21,8 @@ Page({
       key: 'dataList',
       success: function(res) {
         _ts.setData({
-          dataList: res.data
+          dataList: res.data,
+          teacherid:options.teacherid
         })
         console.log(res.data)
         for (var i = 0; i < _ts.data.dataList.length; i++) {
@@ -68,7 +71,7 @@ Page({
     var that = this
     if (app.globalData.userIdentity == true) {
       wx.navigateTo({
-        url: '/pages/order/order?teacher=' + that.data.name,
+        url: '/pages/order/order?teacher=' + that.data.name + '&teacherid=' + that.data.teacherid,
       })
     }else{
       wx.showModal({

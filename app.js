@@ -7,8 +7,8 @@ App({
     inner:"",
     src:"",
     isPlay:false,
-    id:"3",
-    name:"name",
+    id:"",
+    name:"",
 
   },
   towxml: new Towxml(),                    //创建towxml对象，供小程序页面使用
@@ -69,6 +69,12 @@ App({
       key: 'userIdentity',
       success: function(res) {
         that.globalData.userIdentity=res.data
+      }
+    })
+    wx.getStorage({
+      key: 'id',
+      success: function (res) {
+        that.data.id = res.data
       }
     })
     

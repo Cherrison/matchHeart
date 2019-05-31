@@ -43,7 +43,14 @@ Component({
         url: '/pages/about/identity/identity'
       })
     },
-    tomyExpert(options){
+    tomyExpert(options) {
+      if (!app.globalData.userIdentity){
+        wx.showToast({
+          title: '尚未登陆',
+          icon:'none'
+        })
+        return
+      }
       console.log("查看我的预约状态")
       wx.navigateTo({
         url: '/pages/about/status/status'

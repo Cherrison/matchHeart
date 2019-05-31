@@ -8,7 +8,8 @@ Page({
   data: {
     day:"",
     time:"",
-    teacher:"宋秀",
+    teacherid:"",
+    teacher:"",
     info:{},
   },
   back() {
@@ -21,13 +22,15 @@ Page({
     console.log(app.data)
     this.setData({
       day:options.day,
-      time:options.time
+      time:options.time,
+      teacher:options.teacher,
+      teacherid:options.teacherid
     })
   },
 
   submit:function(e){
     var that = this
-
+    console.log(app.data.id)
     console.log(app.globalData.userInfo)
 
     wx.request({
@@ -39,6 +42,7 @@ Page({
       data:{
         type:'send',
         info:JSON.stringify(that.data.info),
+        teacherid:that.data.teacherid,
         teacher:that.data.teacher,
         day:that.data.day,
         time:that.data.time,

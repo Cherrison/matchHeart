@@ -17,7 +17,6 @@
 <scroll-view scroll-y='true' scroll-x='false' style='width:100vw;height:80vh;display:flex;justify-items:center;'>
 <view wx:for='{{data}}' wx:if='{{status[TabCur]=="全部.."?1:item.status==status[TabCur]?1:0}}'style='padding:25rpx;'>
   <view style='margin:auto;box-shadow: 15rpx 15rpx 35rpx;font-size:35rpx;padding:25rpx;'>
-    <view>姓名：{{item.studentname}}</view>
     <view>状态{{item.status}}</view>
     <view>预约时间：{{item.appointmenttime}}</view>
     <view>预约老师：{{item.teachername}}</view>

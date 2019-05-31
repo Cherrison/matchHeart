@@ -43,6 +43,10 @@ Page({
             key: 'userIdentity',
             data: true
           })
+          wx.setStorage({
+            key: 'id',
+            data: res.data.id
+          })
           app.data.id = res.data.id
           app.globalData.userIdentity=true;
           console.log("验证成功!")

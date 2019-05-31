@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    teacherid:"",
     teacher:"",
     calendar: [
       { "week": "星期一", "date": "2019-5-27" },
@@ -43,7 +44,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载信息中',
+    })
+    console.log(options.teacherid)
     var that = this;
+    this.setData({
+      teacherid:options.teacherid
+    })
     this.data.teacher = options.teacher
     wx.request({
       url: 'https://www.clearn.site/wxapi/date.php',
@@ -52,9 +60,11 @@ Page({
       },
       method: "POST",
       data: {
-        type: 'getdate'
+        type: 'getdate',
+        teacherid:options.teacherid
       },
       success: function (res) {
+        wx.hideLoading()
         console.log(res)
         var week = ['日', '一', '二', '三', '四', '五', '六']
         var tmp = []
@@ -86,10 +96,12 @@ Page({
           else if (res.data[i].date.split(" ")[1] == "15:00:00")
             tmp['yuyue'][res.data[i].week][3]++
         }
+        console.log(tmp['yuyue'])
         var t = that.data.timeArr
         var tn = tmp[0].num
         for(let i = 0;i < 20;i++){                  //此处更新时段的预约情况
-          if (tmp['yuyue'][i % 5 + 1][parseInt(i / 5)] >= 6){
+          console.log(tmp['yuyue'][i % 5 + 1][parseInt(i / 5)])
+          if (tmp['yuyue'][i % 5 + 1][parseInt(i / 5)] >= 1){
             t[(i % 5 + 6 - 1 * tn) % 5 + parseInt(i / 5)*5].status = "约满"
           }
           else{
@@ -126,7 +138,7 @@ Page({
     if (e.currentTarget.dataset.chose=='confirm'){
       console.log("在线填写信息")
       wx: wx.navigateTo({
-        url: '/pages/order/form?teacher=' + that.data.teacher + '&day=' + that.data.currentTime % 5 + '&time='+ parseInt(that.data.currentTime / 5)
+        url: '/pages/order/form?teacher=' + that.data.teacher + '&day=' + that.data.currentTime % 5 + '&time='+ parseInt(that.data.currentTime / 5) + '&teacherid=' + that.data.teacherid
       })
     }
    else{
