@@ -20,49 +20,62 @@ Page({
     wx.showLoading({
       title: '正在验证',
     })
-    wx.request({
-      url: 'https://www.clearn.site/wxapi/wxlogin.php',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: "POST",
-      data: {
-        username: userid.username,
-        password: userid.password
-      },
+
+    wx.login({
       success: function (res) {
-        if (res.data.state == true) {
-          wx.hideLoading()
-          wx.showToast({
-            title: '验证成功'
-          })
-          wx.switchTab({
-            url: '/pages/about/home/home',
-          })
-          wx.setStorage({
-            key: 'userIdentity',
-            data: true
-          })
-          app.data.id = res.data.id
-          app.globalData.userIdentity=true;
-          console.log("验证成功!")
-        }
-        else {
-          wx.hideLoading()
-          wx.showToast({
-            title: '验证失败',
-            icon: "none"
-          })
-          wx.setStorage({
-            key: 'userIdentity',
-            data: false
-          })
-          app.globalData.userIdentity = false;
-          console.log("验证失败!")
-        }
-      },
-      fail: function (res) {
-        console.log(res);
+        console.log(res)
+        if(res.code)
+        wx.request({
+          url: 'https://www.clearn.site/wxapi/wxlogin.php',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          data: {
+            username: userid.username,
+            password: userid.password,
+            code:res.code
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data.state == true) {
+              wx.hideLoading()
+              wx.showToast({
+                title: '验证成功'
+              })
+              wx.switchTab({
+                url: '/pages/about/home/home',
+              })
+              wx.setStorage({
+                key: 'userIdentity',
+                data: true
+              })
+              wx.setStorage({
+                key: 'id',
+                data: res.data.id
+              })
+              app.data.id = res.data.id
+              app.globalData.userIdentity = true;
+              console.log("验证成功!")
+            }
+            else {
+              wx.hideLoading()
+              wx.showToast({
+                title: '验证失败',
+                icon: "none"
+              })
+              wx.setStorage({
+                key: 'userIdentity',
+                data: false
+              })
+              app.globalData.userIdentity = false;
+              console.log("验证失败!")
+            }
+          },
+          fail: function (res) {
+            console.log(res);
+          }
+        })
       }
     })
   },

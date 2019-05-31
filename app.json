@@ -1,17 +1,15 @@
 {
   "pages": [
     "pages/start/start",
+    "pages/order/form",
+    "pages/expert/expert",
     "pages/home/assess/assess",
-    
     "pages/home/home",
     "pages/home/knowis/knowis",
     "pages/about/status/status",
     "pages/order/order",
-    "pages/order/form",
     "pages/article-detail/article-detail",
-    
     "pages/home/assess/result/result",
-    "pages/expert/expert",
     "pages/expert-detail/expert-detail",
     "pages/index/index",
     "pages/logs/logs",
@@ -19,8 +17,6 @@
     "pages/about/home/home",
     "pages/about/identity/identity",
     "pages/about/about/about"
-    
-   
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

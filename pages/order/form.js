@@ -8,7 +8,8 @@ Page({
   data: {
     day:"",
     time:"",
-    teacher:"宋秀",
+    teacherid:"",
+    teacher:"",
     info:{},
   },
   back() {
@@ -21,13 +22,18 @@ Page({
     console.log(app.data)
     this.setData({
       day:options.day,
-      time:options.time
+      time:options.time,
+      teacher:options.teacher,
+      teacherid:options.teacherid
     })
   },
 
   submit:function(e){
+    wx.showLoading({
+      title: '发送预约中',
+    })
     var that = this
-
+    console.log(app.data.id)
     console.log(app.globalData.userInfo)
 
     wx.request({
@@ -39,13 +45,16 @@ Page({
       data:{
         type:'send',
         info:JSON.stringify(that.data.info),
+        teacherid:that.data.teacherid,
         teacher:that.data.teacher,
         day:that.data.day,
         time:that.data.time,
         stuid:app.data.id,
-        name:app.data.name
+        name:app.data.name,
+        formid:e.detail.formId
       },
       success:function(res){
+        wx.hideLoading()
         console.log(res)
         if(res.data == 'success')
           wx.showToast({

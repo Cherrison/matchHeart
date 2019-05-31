@@ -77,5 +77,7 @@
     </checkbox-group>
   <view class='fege'></view>
   <view style='background-color: var(--white); display:flex;padding:50rpx; justify-content:center;width:100%;'>
-    <button style='width:200rpx;'class="cu-btn lg bg-green shadow" bindtap='submit' data-target="DialogModal1">确定</button>
+  <form bindsubmit='submit' report-submit="true">
+    <button style='width:200rpx;'class="cu-btn lg bg-green shadow" form-type='submit' data-target="DialogModal1">确定</button>
+    </form>
   </view>

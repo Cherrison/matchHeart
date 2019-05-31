@@ -17,6 +17,7 @@ Component({
       '生涯规划'
     ],
     datalist: [{
+      teacherid:4,
       name: "牟宏玮",
       tid: 19001,
       occu_info: {
@@ -29,6 +30,7 @@ Component({
       pic_url: "https://www.cheery.pro/teacher/19001.png",
       category:'情绪调节'
     }, {
+      teacherid: 3,
       name: "迟昊阳",
       tid: 19002,
       occu_info: {
@@ -41,6 +43,7 @@ Component({
       pic_url: "https://www.cheery.pro/teacher/19002.png",
       category: '亲密关系'
       }, {
+        teacherid: 2,
         name: "宋秀",
         tid: 19003,
         occu_info: {
@@ -53,6 +56,7 @@ Component({
         pic_url:"https://www.cheery.pro/teacher/19003.png",
         category: '人际关系'
       }, {
+        teacherid: 1,
         name: "张迪",
         tid: 19004,
         occu_info: {
@@ -65,6 +69,7 @@ Component({
         pic_url: "https://www.cheery.pro/teacher/19004.png",
         category: '心理创伤'
       }, {
+        teacherid: 5,
         name: "吴连海",
         tid: 19005,
         occu_info: {
@@ -77,6 +82,7 @@ Component({
         pic_url: "https://www.cheery.pro/teacher/19005.png",
         category: '生涯规划'
       }, {
+        teacherid: 6,
         name: "甄珍",
         tid: 19006,
         occu_info: {
@@ -89,6 +95,7 @@ Component({
         pic_url: "https://www.cheery.pro/teacher/19006.png",
         category: '人际关系'
       }, {
+        teacherid: 7,
         name: "崔帅",
         tid: 19007,
         occu_info: {
