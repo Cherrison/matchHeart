@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/expert/expert",
     "pages/start/start",
+    "pages/order/form",
+    "pages/expert/expert",
     "pages/home/assess/assess",
     "pages/home/home",
     "pages/home/knowis/knowis",
     "pages/about/status/status",
     "pages/order/order",
-    "pages/order/form",
     "pages/article-detail/article-detail",
     "pages/home/assess/result/result",
     "pages/expert-detail/expert-detail",

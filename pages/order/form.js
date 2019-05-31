@@ -29,6 +29,9 @@ Page({
   },
 
   submit:function(e){
+    wx.showLoading({
+      title: '发送预约中',
+    })
     var that = this
     console.log(app.data.id)
     console.log(app.globalData.userInfo)
@@ -47,9 +50,11 @@ Page({
         day:that.data.day,
         time:that.data.time,
         stuid:app.data.id,
-        name:app.data.name
+        name:app.data.name,
+        formid:e.detail.formId
       },
       success:function(res){
+        wx.hideLoading()
         console.log(res)
         if(res.data == 'success')
           wx.showToast({
